@@ -1,0 +1,24 @@
+# ============================================
+# Netlify Configuration — Dr. med. Thomas Pap
+# ============================================
+
+[build]
+  # The build command runs the blog generator
+  command = "node build-blog.js"
+
+  # The publish directory is the project root (all HTML lives here)
+  publish = "."
+
+# Clean URLs: /blog/bluthochdruck-tipps/ serves blog/bluthochdruck-tipps/index.html
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog/"
+  status = 301
+  force = true
+
+# Old blog-post.html URLs → blog listing (catch-all for old links)
+[[redirects]]
+  from = "/blog-post.html"
+  to = "/blog/"
+  status = 301
+  force = true

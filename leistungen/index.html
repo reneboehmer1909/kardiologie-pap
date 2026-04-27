@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Leistungen – Dr. med. Thomas Pap | Kardiologie &amp; Innere Medizin Graz</title>
+  <meta name="description" content="Herzultraschall, EKG, 24h-Blutdruck, Vorsorge und OP-Freigaben: Alle kardiologischen und internistischen Leistungen von Dr. Thomas Pap in Graz im Überblick.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.kardiologie-pap.at/leistungen/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kardiologische Leistungen – Dr. med. Thomas Pap, Graz">
+  <meta property="og:description" content="Herzultraschall, EKG, Vorsorge, OP-Freigabe und mehr – laienverständlich erklärt.">
+  <meta property="og:url" content="https://www.kardiologie-pap.at/leistungen/">
+  <meta property="og:locale" content="de_AT">
+  <meta property="og:site_name" content="Dr. med. Thomas Pap">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /* Page-specific: detailed service blocks */
+    .service-detail {
+      display: grid;
+      gap: var(--sp-2xl);
+    }
+    .service-block {
+      display: grid;
+      gap: var(--sp-lg);
+      padding: var(--sp-xl);
+      background: var(--clr-white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--clr-gray-200);
+    }
+    .service-block__header {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+    }
+    .service-block__icon {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--clr-blue-light);
+      border-radius: var(--border-radius-lg);
+      font-size: 1.6rem;
+    }
+    .service-block__title {
+      font-size: var(--fs-xl);
+      font-family: var(--ff-body);
+      font-weight: var(--fw-bold);
+    }
+    .service-block__body p {
+      color: var(--clr-text-light);
+      line-height: var(--lh-loose);
+    }
+    .service-block__body p + p {
+      margin-top: var(--sp-md);
+    }
+    .service-block__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-sm);
+    }
+    .tag {
+      display: inline-block;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-medium);
+      padding: 0.3em 0.8em;
+      background: var(--clr-blue-light);
+      color: var(--clr-navy);
+      border-radius: 20px;
+    }
+    .service-block__icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--clr-navy);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .service-block__img {
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+    }
+    .service-block__img img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Zur Startseite von Dr. med. Thomas Pap">
+        <img src="/img/icons/logo.png" alt="" class="logo__img" width="42" height="42">
+        <span class="logo__text">
+          <span class="logo__name">Dr. med. Thomas Pap</span>
+          <span class="logo__subtitle">Innere Medizin &amp; Kardiologie</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <ul class="main-nav__list">
+          <li><a href="/" class="main-nav__link">Startseite</a></li>
+          <li><a href="/ueber-mich/" class="main-nav__link">Über mich</a></li>
+          <li><a href="/leistungen/" class="main-nav__link main-nav__link--active" aria-current="page">Leistungen</a></li>
+          <li><a href="/blog/" class="main-nav__link">Blog</a></li>
+          <li><a href="/faq/" class="main-nav__link">FAQ</a></li>
+          <li><a href="/termin/" class="main-nav__link">Termin buchen</a></li>
+          <li><a href="/kontakt/" class="main-nav__link">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" aria-hidden="true">
+    <ul class="mobile-nav__list">
+      <li><a href="/" class="mobile-nav__link">Startseite</a></li>
+      <li><a href="/ueber-mich/" class="mobile-nav__link">Über mich</a></li>
+      <li><a href="/leistungen/" class="mobile-nav__link" aria-current="page">Leistungen</a></li>
+      <li><a href="/blog/" class="mobile-nav__link">Blog</a></li>
+      <li><a href="/faq/" class="mobile-nav__link">FAQ</a></li>
+      <li><a href="/termin/" class="mobile-nav__link">Termin buchen</a></li>
+      <li><a href="/kontakt/" class="mobile-nav__link">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== MAIN ========== -->
+  <main id="main-content">
+
+    <!-- Page Hero -->
+    <section class="hero hero--compact" aria-labelledby="page-title">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__overline">Leistungsspektrum</span>
+          <h1 id="page-title" class="hero__title">Kardiologische und internistische Leistungen</h1>
+          <p class="hero__text">
+            Alle Untersuchungen in meiner Ordination – verständlich erklärt. Modernste Geräte und
+            ausreichend Zeit sorgen für aussagekräftige Ergebnisse.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section class="section" aria-labelledby="leistungen-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__overline">Im Detail</span>
+          <h2 id="leistungen-title" class="section__title">Meine Untersuchungen für Ihre Herzgesundheit</h2>
+        </div>
+
+        <div class="service-detail">
+
+          <!-- Herzultraschall -->
+          <article class="service-block" id="herzultraschall">
+            <div class="service-block__header">
+              <div class="service-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+              <h3 class="service-block__title">Herzultraschall (Echokardiographie)</h3>
+            </div>
+            <div class="service-block__body">
+              <p>
+                Der Herzultraschall ist eine der wichtigsten Untersuchungen in der Kardiologie. Mit Hilfe von
+                Ultraschallwellen kann ich Ihr Herz in Echtzeit auf einem Bildschirm sehen – ganz ohne
+                Strahlenbelastung und völlig schmerzfrei.
+              </p>
+              <p>
+                Dabei beurteile ich die Größe der Herzkammern, die Funktion der Herzklappen, die Pumpkraft
+                des Herzmuskels und den Blutfluss innerhalb des Herzens. So lassen sich Erkrankungen wie
+                Herzschwäche, Klappendefekte oder Veränderungen am Herzmuskel frühzeitig und zuverlässig erkennen.
+              </p>
+              <p>
+                Die Untersuchung dauert in der Regel 15 bis 20 Minuten. Sie liegen dabei entspannt auf einer Liege,
+                während ich den Schallkopf auf Ihren Brustkorb aufsetze. Eine besondere Vorbereitung ist nicht notwendig.
+              </p>
+            </div>
+            <div class="service-block__img">
+              <img src="/img/photos/p1.png" alt="Herzultraschall-Untersuchung – Ärztin führt Echokardiographie am Patienten durch" width="800" height="450" loading="lazy">
+            </div>
+            <div class="service-block__tags">
+              <span class="tag">Schmerzfrei</span>
+              <span class="tag">Keine Strahlung</span>
+              <span class="tag">ca. 15–20 Min.</span>
+            </div>
+          </article>
+
+          <!-- Ruhe-EKG -->
+          <article class="service-block" id="ruhe-ekg">
+            <div class="service-block__header">
+              <div class="service-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <h3 class="service-block__title">Ruhe-EKG</h3>
+            </div>
+            <div class="service-block__body">
+              <p>
+                Das Ruhe-EKG (Elektrokardiogramm) zeichnet die elektrische Aktivität Ihres Herzens auf. Es ist eine der
+                schnellsten und grundlegendsten kardiologischen Untersuchungen und gibt mir wertvolle Hinweise auf
+                Herzrhythmusstörungen, Durchblutungsstörungen oder eine Vergrößerung der Herzkammern.
+              </p>
+              <p>
+                Dabei werden kleine Elektroden auf Brust, Arme und Beine geklebt. Die Aufzeichnung selbst dauert nur
+                wenige Sekunden. Sie spüren dabei nichts – die Untersuchung ist völlig schmerzfrei.
+              </p>
+            </div>
+            <div class="service-block__img">
+              <img src="/img/photos/p4.png" alt="Ruhe-EKG – Patient wird mit EKG-Elektroden untersucht" width="800" height="450" loading="lazy">
+            </div>
+            <div class="service-block__tags">
+              <span class="tag">Schmerzfrei</span>
+              <span class="tag">Wenige Sekunden</span>
+              <span class="tag">Basisdiagnostik</span>
+            </div>
+          </article>
+
+          <!-- Belastungs-EKG -->
+          <article class="service-block" id="belastungs-ekg">
+            <div class="service-block__header">
+              <div class="service-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <h3 class="service-block__title">Belastungs-EKG (Ergometrie)</h3>
+            </div>
+            <div class="service-block__body">
+              <p>
+                Beim Belastungs-EKG wird Ihr Herz unter körperlicher Anstrengung untersucht – in der Regel auf
+                einem Fahrrad-Ergometer. Die Belastung wird stufenweise gesteigert, während ich kontinuierlich
+                Ihren Herzrhythmus, Blutdruck und Ihre körperliche Reaktion überwache.
+              </p>
+              <p>
+                Diese Untersuchung ist besonders aussagekräftig, weil bestimmte Herzprobleme erst unter Belastung
+                sichtbar werden. Sie hilft mir, Durchblutungsstörungen der Herzkranzgefäße, belastungsabhängige
+                Rhythmusstörungen und Ihre allgemeine kardiovaskuläre Fitness zu beurteilen.
+              </p>
+              <p>
+                Bitte tragen Sie an diesem Tag bequeme Kleidung und Sportschuhe. Die Untersuchung dauert insgesamt
+                etwa 20 bis 30 Minuten.
+              </p>
+            </div>
+            <div class="service-block__img">
+              <img src="/img/photos/p2.png" alt="Belastungs-EKG – Patient auf dem Fahrrad-Ergometer mit Monitor" width="800" height="450" loading="lazy">
+            </div>
+            <div class="service-block__tags">
+              <span class="tag">Auf dem Ergometer</span>
+              <span class="tag">ca. 20–30 Min.</span>
+              <span class="tag">Sportschuhe mitbringen</span>
+            </div>
+          </article>
+
+          <!-- 24h-EKG -->
+          <article class="service-block" id="langzeit-ekg">
+            <div class="service-block__header">
+              <div class="service-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 13.5 13.5"/><path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 0 1 9.83 1h4.35a2 2 0 0 1 2 1.82l.35 3.83"/></svg></div>
+              <h3 class="service-block__title">24-Stunden-EKG (Langzeit-EKG)</h3>
+            </div>
+            <div class="service-block__body">
+              <p>
+                Das Langzeit-EKG zeichnet Ihren Herzrhythmus über einen ganzen Tag und eine Nacht auf.
+                Dafür erhalten Sie ein kleines, tragbares Gerät, das Sie bequem am Körper tragen können.
+                Elektroden auf der Brust sind über dünne Kabel mit dem Aufzeichnungsgerät verbunden.
+              </p>
+              <p>
+                Diese Methode ist besonders wertvoll, um Herzrhythmusstörungen zu entdecken, die nur
+                gelegentlich auftreten – zum Beispiel Herzstolpern, Herzrasen oder kurze Aussetzer. Auch
+                bei Schwindelgefühl oder unerklärter Müdigkeit kann das Langzeit-EKG wichtige Hinweise liefern.
+              </p>
+              <p>
+                Sie gehen Ihrem normalen Alltag nach und bringen das Gerät am nächsten Tag zurück. Die
+                Auswertung bespreche ich anschließend persönlich mit Ihnen.
+              </p>
+            </div>
+            <div class="service-block__img">
+              <img src="/img/photos/p3.png" alt="Langzeit-EKG – Patientin trägt tragbaren Holter-Monitor im Alltag" width="800" height="450" loading="lazy">
+            </div>
+            <div class="service-block__tags">
+              <span class="tag">24 Stunden</span>
+              <span class="tag">Tragbares Gerät</span>
+              <span class="tag">Alltag möglich</span>
+            </div>
+          </article>
+
+          <!-- 24h-Blutdruck -->
+          <article class="service-block" id="langzeit-blutdruck">
+            <div class="service-block__header">
+              <div class="service-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <h3 class="service-block__title">24-Stunden-Blutdruckmessung</h3>
+            </div>
+            <div class="service-block__body">
+              <p>
+                Bei der Langzeit-Blutdruckmessung tragen Sie eine automatische Blutdruckmanschette am Oberarm,
+                die über 24 Stunden in regelmäßigen Abständen Ihren Blutdruck misst – tagsüber häufiger, nachts
+                seltener.
+              </p>
+              <p>
+                So erhalte ich ein realistisches Bild Ihrer Blutdruckwerte im Alltag und kann beurteilen, ob
+                ein Bluthochdruck vorliegt, wie der Blutdruck nachts absinkt (die sogenannte „Nachtabsenkung")
+                und ob eine bestehende Therapie optimal eingestellt ist.
+              </p>
+              <p>
+                Diese Untersuchung ist besonders aussagekräftig, weil Einzelmessungen in der Ordination oft durch
+                Aufregung verfälscht werden können (der sogenannte „Weißkittel-Effekt").
+              </p>
+            </div>
+            <div class="service-block__img">
+              <img src="/img/photos/p5.png" alt="24-Stunden-Blutdruckmessung – Patientin mit automatischer Blutdruckmanschette" width="800" height="450" loading="lazy">
+            </div>
+            <div class="service-block__tags">
+              <span class="tag">24 Stunden</span>
+              <span class="tag">Automatische Messung</span>
+              <span class="tag">Alltagstauglich</span>
+            </div>
+          </article>
+
+          <!-- OP-Freigabe -->
+          <article class="service-block" id="op-freigabe">
+            <div class="service-block__header">
+              <div class="service-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+              <h3 class="service-block__title">Internistische OP-Freigabe</h3>
+            </div>
+            <div class="service-block__body">
+              <p>
+                Vor einem geplanten operativen Eingriff benötigen Sie in der Regel eine internistische Freigabe.
+                Dabei überprüfe ich Ihren allgemeinen Gesundheitszustand, beurteile Ihr kardiovaskuläres Risiko
+                und stelle sicher, dass keine Gegenanzeigen für die geplante Operation bestehen.
+              </p>
+              <p>
+                Die Untersuchung umfasst je nach Bedarf ein EKG, eine Blutdruckmessung, eine Blutabnahme und
+                gegebenenfalls einen Herzultraschall. Sie erhalten danach einen schriftlichen Befund, den Sie
+                an Ihren Chirurgen oder das Krankenhaus weitergeben können.
+              </p>
+              <p>
+                Bitte bringen Sie – wenn vorhanden – Ihren Überweisungsschein, aktuelle Befunde und eine
+                Liste Ihrer Medikamente zum Termin mit.
+              </p>
+            </div>
+            <div class="service-block__img">
+              <img src="/img/photos/p6.png" alt="Ärztliches Beratungsgespräch zur OP-Freigabe" width="800" height="450" loading="lazy">
+            </div>
+            <div class="service-block__tags">
+              <span class="tag">Schriftlicher Befund</span>
+              <span class="tag">Für alle Eingriffe</span>
+              <span class="tag">Befunde mitbringen</span>
+            </div>
+          </article>
+
+          <!-- Vorsorge -->
+          <article class="service-block" id="vorsorge">
+            <div class="service-block__header">
+              <div class="service-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <h3 class="service-block__title">Vorsorgeuntersuchung (Gesundenuntersuchung)</h3>
+            </div>
+            <div class="service-block__body">
+              <p>
+                Die Vorsorgeuntersuchung ist eine umfassende Gesundenuntersuchung, die darauf abzielt,
+                Risikofaktoren und Erkrankungen frühzeitig zu erkennen – noch bevor Beschwerden auftreten.
+                In Österreich haben Sie ab dem 18. Lebensjahr einmal jährlich Anspruch darauf.
+              </p>
+              <p>
+                In meiner Ordination umfasst die Vorsorge neben den üblichen Laborwerten und der
+                körperlichen Untersuchung auch eine ausführliche Besprechung Ihrer Lebensgewohnheiten,
+                familiären Vorbelastungen und individuellen Risikofaktoren. Bei Bedarf ergänze ich die
+                Untersuchung um ein EKG oder einen Herzultraschall.
+              </p>
+              <p>
+                Mein Ziel ist es, Ihnen ein klares Bild Ihres Gesundheitszustandes zu geben und gemeinsam
+                konkrete Maßnahmen zu besprechen, damit Sie langfristig gesund bleiben.
+              </p>
+            </div>
+            <div class="service-block__img">
+              <img src="/img/photos/p6.png" alt="Persönliches Beratungsgespräch zur kardiologischen Vorsorge" width="800" height="450" loading="lazy">
+            </div>
+            <div class="service-block__tags">
+              <span class="tag">Ab 18 Jahren</span>
+              <span class="tag">Jährlich empfohlen</span>
+              <span class="tag">Umfassend</span>
+            </div>
+          </article>
+
+          <!-- Nachsorge -->
+          <article class="service-block" id="nachsorge">
+            <div class="service-block__header">
+              <div class="service-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <h3 class="service-block__title">Nachsorge und langfristige Begleitung</h3>
+            </div>
+            <div class="service-block__body">
+              <p>
+                Nach einem kardiologischen Eingriff – etwa einer Stentimplantation, einer Bypass-Operation
+                oder einer Katheterablation – ist eine regelmäßige Nachsorge entscheidend für Ihren
+                langfristigen Behandlungserfolg.
+              </p>
+              <p>
+                In meiner Ordination begleite ich Sie mit regelmäßigen Kontrollterminen, bei denen wir Ihre
+                Medikation überprüfen, den Verlauf Ihrer Erkrankung beobachten und bei Bedarf Anpassungen
+                vornehmen. Auch bei chronischen Erkrankungen wie Herzinsuffizienz, Vorhofflimmern oder
+                koronarer Herzkrankheit stehe ich Ihnen als verlässlicher Ansprechpartner zur Seite.
+              </p>
+              <p>
+                Sie sind nicht allein – gemeinsam arbeiten wir daran, Ihre Lebensqualität bestmöglich zu
+                erhalten und zu verbessern.
+              </p>
+            </div>
+            <div class="service-block__img">
+              <img src="/img/photos/p6.png" alt="Kardiologische Nachsorge – Ärztin bespricht Befunde mit Patient" width="800" height="450" loading="lazy">
+            </div>
+            <div class="service-block__tags">
+              <span class="tag">Regelmäßige Kontrollen</span>
+              <span class="tag">Medikamentenmanagement</span>
+              <span class="tag">Langfristig</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title" class="cta-section__title">Fragen zu einer Untersuchung?</h2>
+        <p class="cta-section__text">
+          Ich berate Sie gerne persönlich. Vereinbaren Sie einen Termin oder kontaktieren Sie mich bei Fragen.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--sp-md); justify-content: center;">
+          <a href="/termin/" class="btn btn--primary btn--lg">Termin vereinbaren</a>
+          <a href="/kontakt/" class="btn btn--outline">Kontakt aufnehmen</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer__heading">Dr. med. Thomas Pap</p>
+          <p class="footer__text">
+            Facharzt für Innere Medizin und Kardiologie<br>
+            Wahlarzt-Ordination in Graz
+          </p>
+          <p class="footer__text" style="margin-top: var(--sp-md);">
+            <a href="tel:+436764501256">+43 676 450 125 6</a><br>
+            <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+          </p>
+        </div>
+        <div>
+          <p class="footer__heading">Navigation</p>
+          <ul class="footer__nav-list">
+            <li><a href="/" class="footer__nav-link">Startseite</a></li>
+            <li><a href="/ueber-mich/" class="footer__nav-link">Über mich</a></li>
+            <li><a href="/leistungen/" class="footer__nav-link">Leistungen</a></li>
+            <li><a href="/blog/" class="footer__nav-link">Blog</a></li>
+            <li><a href="/faq/" class="footer__nav-link">FAQ</a></li>
+            <li><a href="/termin/" class="footer__nav-link">Termin buchen</a></li>
+            <li><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Öffnungszeiten</p>
+          <p class="footer__text">
+            Do: 16:00 – 21:00 Uhr<br>
+            
+            <em>Termine nach Vereinbarung</em>
+          </p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Dr. med. Thomas Pap. Alle Rechte vorbehalten.</span>
+        <span>
+          <a href="/impressum/">Impressum</a> &middot;
+          <a href="/datenschutz/">Datenschutz</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var burger = document.querySelector('.burger');
+      var mobileNav = document.getElementById('mobile-nav');
+      var mobileLinks = mobileNav.querySelectorAll('.mobile-nav__link');
+      function toggleMenu() {
+        var isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        burger.setAttribute('aria-label', isOpen ? 'Menü öffnen' : 'Menü schließen');
+        mobileNav.setAttribute('aria-hidden', String(isOpen));
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+      }
+      burger.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          burger.setAttribute('aria-expanded', 'false');
+          burger.setAttribute('aria-label', 'Menü öffnen');
+          mobileNav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+          toggleMenu(); burger.focus();
+        }
+      });
+      var header = document.querySelector('.site-header');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

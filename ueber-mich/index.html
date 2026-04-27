@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Über mich – Dr. med. Thomas Pap | Kardiologe in Graz</title>
+  <meta name="description" content="Lernen Sie Dr. med. Thomas Pap kennen – Facharzt für Innere Medizin und Kardiologie in Graz. Erfahrung, Philosophie und persönlicher Zugang zur Herzmedizin.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.kardiologie-pap.at/ueber-mich/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Über Dr. med. Thomas Pap – Kardiologe in Graz">
+  <meta property="og:description" content="Facharzt für Innere Medizin und Kardiologie. Persönliche Betreuung, Empathie und modernste Diagnostik.">
+  <meta property="og:url" content="https://www.kardiologie-pap.at/ueber-mich/">
+  <meta property="og:locale" content="de_AT">
+  <meta property="og:site_name" content="Dr. med. Thomas Pap">
+  <meta property="og:image" content="https://www.kardiologie-pap.at/img/photos/Portrait.jpg">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Page-specific styles -->
+  <style>
+    /* ---- About: Portrait + Text side-by-side ---- */
+    .about-intro {
+      display: grid;
+      gap: var(--sp-2xl);
+      align-items: start;
+    }
+
+    .about-intro__portrait {
+      width: 100%;
+      max-width: 360px;
+      margin-inline: auto;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-intro__portrait img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    .about-intro__body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+    }
+
+    .about-intro__body p {
+      color: var(--clr-text-light);
+      line-height: var(--lh-loose);
+    }
+
+    /* ---- Credentials strip ---- */
+    .credentials {
+      display: grid;
+      gap: var(--sp-lg);
+      margin-top: var(--sp-2xl);
+    }
+
+    .credential {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-md);
+    }
+
+    .credential__icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--clr-blue-light);
+      border-radius: 50%;
+    }
+
+    .credential__icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--clr-navy);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .credential__text h3 {
+      font-family: var(--ff-body);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-semibold);
+      color: var(--clr-navy);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .credential__text p {
+      font-size: var(--fs-sm);
+      color: var(--clr-gray-600);
+      line-height: var(--lh-normal);
+    }
+
+    /* ---- Philosophy section ---- */
+    .philosophy-grid {
+      display: grid;
+      gap: var(--sp-2xl);
+      align-items: center;
+    }
+
+    .philosophy-grid__text p {
+      color: var(--clr-text-light);
+      line-height: var(--lh-loose);
+    }
+
+    .philosophy-grid__text p + p {
+      margin-top: var(--sp-md);
+    }
+
+    .philosophy-grid__img {
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .philosophy-grid__img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    /* ---- Values cards ---- */
+    .values-grid {
+      display: grid;
+      gap: var(--sp-lg);
+    }
+
+    .value-card {
+      text-align: center;
+      padding: var(--sp-xl) var(--sp-lg);
+      background: var(--clr-white);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--clr-gray-200);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .value-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .value-card__icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--sp-md);
+      background: var(--clr-blue-light);
+      border-radius: 50%;
+    }
+
+    .value-card__icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--clr-accent);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .value-card h3 {
+      font-family: var(--ff-body);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .value-card p {
+      font-size: var(--fs-sm);
+      color: var(--clr-text-light);
+      line-height: var(--lh-normal);
+    }
+
+    /* ---- Tablet (>=600px) ---- */
+    @media (min-width: 600px) {
+      .credentials {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ---- Desktop (>=900px) ---- */
+    @media (min-width: 900px) {
+      .about-intro {
+        grid-template-columns: 320px 1fr;
+        gap: var(--sp-3xl);
+      }
+
+      .about-intro__portrait {
+        max-width: none;
+        position: sticky;
+        top: 100px;
+      }
+
+      .credentials {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .philosophy-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--sp-3xl);
+      }
+    }
+
+    /* ---- Large desktop (>=1100px) ---- */
+    @media (min-width: 1100px) {
+      .about-intro {
+        grid-template-columns: 380px 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Zur Startseite von Dr. med. Thomas Pap">
+        <img src="/img/icons/logo.png" alt="" class="logo__img" width="42" height="42">
+        <span class="logo__text">
+          <span class="logo__name">Dr. med. Thomas Pap</span>
+          <span class="logo__subtitle">Innere Medizin &amp; Kardiologie</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <ul class="main-nav__list">
+          <li><a href="/" class="main-nav__link">Startseite</a></li>
+          <li><a href="/ueber-mich/" class="main-nav__link main-nav__link--active" aria-current="page">Über mich</a></li>
+          <li><a href="/leistungen/" class="main-nav__link">Leistungen</a></li>
+          <li><a href="/blog/" class="main-nav__link">Blog</a></li>
+          <li><a href="/faq/" class="main-nav__link">FAQ</a></li>
+          <li><a href="/termin/" class="main-nav__link">Termin buchen</a></li>
+          <li><a href="/kontakt/" class="main-nav__link">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" aria-hidden="true">
+    <ul class="mobile-nav__list">
+      <li><a href="/" class="mobile-nav__link">Startseite</a></li>
+      <li><a href="/ueber-mich/" class="mobile-nav__link" aria-current="page">Über mich</a></li>
+      <li><a href="/leistungen/" class="mobile-nav__link">Leistungen</a></li>
+      <li><a href="/blog/" class="mobile-nav__link">Blog</a></li>
+      <li><a href="/faq/" class="mobile-nav__link">FAQ</a></li>
+      <li><a href="/termin/" class="mobile-nav__link">Termin buchen</a></li>
+      <li><a href="/kontakt/" class="mobile-nav__link">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== MAIN ========== -->
+  <main id="main-content">
+
+    <!-- Page Hero -->
+    <section class="hero hero--compact" aria-labelledby="page-title">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__overline">Über mich</span>
+          <h1 id="page-title" class="hero__title">Ihr Kardiologe in Graz</h1>
+          <p class="hero__text">
+            Medizin ist für mich mehr als Diagnostik – sie beginnt mit Zuhören, Verstehen und einem echten Interesse am Menschen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Vorstellung: Portrait + Text ===== -->
+    <section class="section" aria-labelledby="vorstellung-title">
+      <div class="container">
+        <div class="about-intro">
+          <div class="about-intro__portrait">
+            <img src="/img/photos/Portrait.jpg" alt="Dr. med. Thomas Pap – Facharzt für Innere Medizin und Kardiologie in Graz" width="380" height="507" loading="lazy">
+          </div>
+          <div class="about-intro__body">
+            <span class="section__overline">Persönlich</span>
+            <h2 id="vorstellung-title" class="section__title">Dr. med. Thomas Pap</h2>
+            <p>
+              Ich bin Facharzt für Innere Medizin und Kardiologie und führe meine Wahlarzt-Ordination
+              in Graz. Mein medizinischer Weg führte mich durch namhafte Kliniken und Abteilungen,
+              in denen ich umfassende Erfahrung in der Diagnostik und Behandlung von Herz-Kreislauf-Erkrankungen
+              sammeln durfte.
+            </p>
+            <p>
+              Nach Jahren in Klinik und Spitalsambulanz habe ich mich bewusst für die Niederlassung als
+              Wahlarzt entschieden. Der Grund ist einfach: Ich möchte Medizin so praktizieren, wie ich
+              sie für richtig halte – mit genügend Zeit, mit Ruhe und mit dem Anspruch, jeden Patienten
+              als Ganzes zu sehen.
+            </p>
+            <p>
+              Regelmäßige Fortbildungen und die enge Anbindung an aktuelle kardiologische Forschung
+              stellen sicher, dass Sie in meiner Ordination von den neuesten medizinischen Erkenntnissen
+              profitieren.
+            </p>
+
+            <!-- Credentials -->
+            <div class="credentials">
+              <div class="credential">
+                <div class="credential__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 10l-10-5L2 10l10 5 10-5z"/><path d="M6 12v5c0 0 2.5 3 6 3s6-3 6-3v-5"/><line x1="22" y1="10" x2="22" y2="16"/></svg>
+                </div>
+                <div class="credential__text">
+                  <h3>Facharztausbildung</h3>
+                  <p>Facharzt für Innere Medizin mit Spezialisierung in Kardiologie, ausgebildet an renommierten Kliniken.</p>
+                </div>
+              </div>
+              <div class="credential">
+                <div class="credential__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div class="credential__text">
+                  <h3>Fortlaufende Weiterbildung</h3>
+                  <p>Regelmäßige Teilnahme an kardiologischen Kongressen und Fortbildungen für die aktuellsten Behandlungsstandards.</p>
+                </div>
+              </div>
+              <div class="credential">
+                <div class="credential__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="credential__text">
+                  <h3>Mitgliedschaften</h3>
+                  <p>Mitglied der Österreichischen Kardiologischen Gesellschaft und der Gesellschaft für Innere Medizin.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Philosophie: Text + Ordination Image ===== -->
+    <section class="section section--alt" aria-labelledby="philosophie-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__overline">Meine Philosophie</span>
+          <h2 id="philosophie-title" class="section__title">Warum ich Wahlarzt bin</h2>
+        </div>
+
+        <div class="philosophy-grid">
+          <div class="philosophy-grid__text">
+            <p>
+              In der heutigen Kassenmedizin bleibt oft zu wenig Zeit für das, was wirklich zählt: ein
+              ausführliches Gespräch, eine gründliche Untersuchung und eine verständliche Erklärung der
+              Befunde. Als Wahlarzt kann ich genau das bieten.
+            </p>
+            <p>
+              Für mich bedeutet gute Medizin, dass sich meine Patientinnen und Patienten ernst genommen
+              und gut aufgehoben fühlen. Ich nehme mir die Zeit, Ihre Beschwerden im Detail zu besprechen,
+              Zusammenhänge zu erklären und gemeinsam mit Ihnen den besten Weg für Ihre Gesundheit zu finden.
+            </p>
+            <p>
+              Dabei lege ich besonderen Wert auf eine klare, verständliche Kommunikation. Medizinische Befunde
+              müssen kein Rätsel sein – ich erkläre Ihnen jeden Schritt, sodass Sie informierte Entscheidungen
+              über Ihre Gesundheit treffen können.
+            </p>
+          </div>
+          <div class="philosophy-grid__img">
+            <img src="/img/photos/Ord1.png" alt="Heller Empfangsbereich der Ordination Dr. Pap in Graz" width="600" height="375" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Werte ===== -->
+    <section class="section" aria-labelledby="werte-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__overline">Was mich auszeichnet</span>
+          <h2 id="werte-title" class="section__title">Meine Werte in der Praxis</h2>
+        </div>
+        <div class="values-grid">
+          <article class="value-card">
+            <div class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Zeit für Sie</h3>
+            <p>
+              Jeder Termin ist großzügig geplant. Keine Hektik, kein Druck – Sie haben meine volle Aufmerksamkeit.
+            </p>
+          </article>
+          <article class="value-card">
+            <div class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Klare Kommunikation</h3>
+            <p>
+              Ich erkläre Befunde und Diagnosen in einer Sprache, die Sie verstehen – ohne unnötigen Fachjargon.
+            </p>
+          </article>
+          <article class="value-card">
+            <div class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            </div>
+            <h3>Höchste Standards</h3>
+            <p>
+              Modernste Geräte und kontinuierliche Fortbildung garantieren Diagnostik auf dem neuesten Stand der Medizin.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title" class="cta-section__title">Lernen Sie mich persönlich kennen</h2>
+        <p class="cta-section__text">
+          Vereinbaren Sie einen Termin und überzeugen Sie sich selbst von meinem Zugang zur Medizin.
+        </p>
+        <a href="/termin/" class="btn btn--primary btn--lg">Termin vereinbaren</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer__heading">Dr. med. Thomas Pap</p>
+          <p class="footer__text">
+            Facharzt für Innere Medizin und Kardiologie<br>
+            Wahlarzt-Ordination in Graz
+          </p>
+          <p class="footer__text" style="margin-top: var(--sp-md);">
+            <a href="tel:+436764501256">+43 676 450 125 6</a><br>
+            <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+          </p>
+        </div>
+        <div>
+          <p class="footer__heading">Navigation</p>
+          <ul class="footer__nav-list">
+            <li><a href="/" class="footer__nav-link">Startseite</a></li>
+            <li><a href="/ueber-mich/" class="footer__nav-link">Über mich</a></li>
+            <li><a href="/leistungen/" class="footer__nav-link">Leistungen</a></li>
+            <li><a href="/blog/" class="footer__nav-link">Blog</a></li>
+            <li><a href="/faq/" class="footer__nav-link">FAQ</a></li>
+            <li><a href="/termin/" class="footer__nav-link">Termin buchen</a></li>
+            <li><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Öffnungszeiten</p>
+          <p class="footer__text">
+            Do: 16:00 – 21:00 Uhr<br>
+            
+            <em>Termine nach Vereinbarung</em>
+          </p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Dr. med. Thomas Pap. Alle Rechte vorbehalten.</span>
+        <span>
+          <a href="/impressum/">Impressum</a> &middot;
+          <a href="/datenschutz/">Datenschutz</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var burger = document.querySelector('.burger');
+      var mobileNav = document.getElementById('mobile-nav');
+      var mobileLinks = mobileNav.querySelectorAll('.mobile-nav__link');
+      function toggleMenu() {
+        var isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        burger.setAttribute('aria-label', isOpen ? 'Menü öffnen' : 'Menü schließen');
+        mobileNav.setAttribute('aria-hidden', String(isOpen));
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+      }
+      burger.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          burger.setAttribute('aria-expanded', 'false');
+          burger.setAttribute('aria-label', 'Menü öffnen');
+          mobileNav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+          toggleMenu(); burger.focus();
+        }
+      });
+      var header = document.querySelector('.site-header');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

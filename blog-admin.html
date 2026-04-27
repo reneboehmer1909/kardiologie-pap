@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog-Verwaltung – Dr. med. Thomas Pap</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ---- Admin layout ---- */
+    .admin-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .admin-main {
+      flex: 1;
+      padding: var(--sp-2xl) 0;
+    }
+
+    /* ---- Login ---- */
+    .login-box {
+      max-width: 400px;
+      margin: var(--sp-4xl) auto;
+      padding: var(--sp-2xl);
+      background: var(--clr-white);
+      border: 1px solid var(--clr-gray-200);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .login-box__icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--sp-lg);
+      background: var(--clr-blue-light);
+      border-radius: 50%;
+    }
+
+    .login-box__icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--clr-navy);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .login-box h1 {
+      font-size: var(--fs-xl);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .login-box p {
+      font-size: var(--fs-sm);
+      color: var(--clr-gray-400);
+      margin-bottom: var(--sp-xl);
+    }
+
+    /* ---- Form elements (shared) ---- */
+    .form-group {
+      margin-bottom: var(--sp-lg);
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      color: var(--clr-navy);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      padding: 0.7em 0.9em;
+      font-family: var(--ff-body);
+      font-size: var(--fs-base);
+      color: var(--clr-text);
+      background: var(--clr-white);
+      border: 1px solid var(--clr-gray-200);
+      border-radius: var(--border-radius);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--clr-accent);
+      box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
+    }
+
+    .form-error {
+      color: var(--clr-danger);
+      font-size: var(--fs-sm);
+      margin-top: var(--sp-xs);
+      display: none;
+    }
+
+    /* ---- Dashboard ---- */
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--sp-2xl);
+      flex-wrap: wrap;
+      gap: var(--sp-md);
+    }
+
+    .admin-header h1 {
+      font-size: var(--fs-2xl);
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: var(--sp-sm);
+    }
+
+    /* ---- Post editor ---- */
+    .editor-card {
+      background: var(--clr-white);
+      border: 1px solid var(--clr-gray-200);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: var(--sp-xl);
+      margin-bottom: var(--sp-xl);
+    }
+
+    .editor-card h2 {
+      font-size: var(--fs-lg);
+      font-family: var(--ff-body);
+      margin-bottom: var(--sp-lg);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 1px solid var(--clr-gray-200);
+    }
+
+    .meta-grid {
+      display: grid;
+      gap: var(--sp-md);
+    }
+
+    /* ---- Thumbnail picker ---- */
+    .thumb-picker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-md);
+      align-items: flex-start;
+    }
+
+    .thumb-preview {
+      width: 160px;
+      height: 100px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      background: var(--clr-gray-100);
+      border: 2px dashed var(--clr-gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .thumb-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb-preview svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--clr-gray-400);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .thumb-picker__controls {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-sm);
+    }
+
+    .thumb-picker__controls .form-input {
+      font-size: var(--fs-sm);
+    }
+
+    .thumb-picker__hint {
+      font-size: var(--fs-sm);
+      color: var(--clr-gray-400);
+      line-height: var(--lh-normal);
+    }
+
+    /* ---- Rich Text Toolbar ---- */
+    .editor-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      padding: var(--sp-sm);
+      background: var(--clr-gray-100);
+      border: 1px solid var(--clr-gray-200);
+      border-bottom: none;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    .editor-toolbar button,
+    .editor-toolbar select {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      height: 34px;
+      padding: 0 6px;
+      background: var(--clr-white);
+      border: 1px solid var(--clr-gray-200);
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--ff-body);
+      font-size: var(--fs-sm);
+      color: var(--clr-gray-800);
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .editor-toolbar button:hover {
+      background: var(--clr-blue-light);
+      border-color: var(--clr-blue);
+    }
+
+    .editor-toolbar button.is-active {
+      background: var(--clr-navy);
+      color: var(--clr-white);
+      border-color: var(--clr-navy);
+    }
+
+    .editor-toolbar svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .toolbar-sep {
+      width: 1px;
+      height: 24px;
+      background: var(--clr-gray-200);
+      align-self: center;
+      margin: 0 4px;
+    }
+
+    .editor-toolbar select {
+      padding: 0 8px;
+      min-width: auto;
+    }
+
+    /* ---- Editable area ---- */
+    .editor-body {
+      min-height: 300px;
+      padding: var(--sp-lg);
+      border: 1px solid var(--clr-gray-200);
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      font-family: var(--ff-body);
+      font-size: var(--fs-base);
+      line-height: var(--lh-loose);
+      color: var(--clr-text);
+      outline: none;
+      overflow-y: auto;
+    }
+
+    .editor-body:focus {
+      border-color: var(--clr-accent);
+      box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
+    }
+
+    .editor-body h2 { font-size: var(--fs-xl); margin: var(--sp-md) 0 var(--sp-sm); }
+    .editor-body h3 { font-size: var(--fs-lg); margin: var(--sp-md) 0 var(--sp-sm); }
+    .editor-body p { margin-bottom: var(--sp-sm); }
+    .editor-body ul, .editor-body ol { padding-left: var(--sp-xl); margin-bottom: var(--sp-sm); }
+    .editor-body ul { list-style: disc; }
+    .editor-body ol { list-style: decimal; }
+    .editor-body blockquote {
+      border-left: 3px solid var(--clr-accent);
+      padding-left: var(--sp-md);
+      margin: var(--sp-md) 0;
+      color: var(--clr-text-light);
+      font-style: italic;
+    }
+
+    /* ---- Posts list (admin) ---- */
+    .posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+    }
+
+    .posts-list__item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+      padding: var(--sp-md);
+      background: var(--clr-white);
+      border: 1px solid var(--clr-gray-200);
+      border-radius: var(--border-radius);
+      transition: box-shadow var(--transition);
+    }
+
+    .posts-list__item:hover {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .posts-list__thumb {
+      width: 80px;
+      height: 50px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--clr-gray-100);
+      flex-shrink: 0;
+    }
+
+    .posts-list__thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .posts-list__info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .posts-list__title {
+      font-weight: var(--fw-semibold);
+      color: var(--clr-navy);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .posts-list__meta {
+      font-size: var(--fs-sm);
+      color: var(--clr-gray-400);
+    }
+
+    .posts-list__actions {
+      display: flex;
+      gap: var(--sp-sm);
+      flex-shrink: 0;
+    }
+
+    .btn--sm {
+      padding: 0.4em 0.9em;
+      font-size: var(--fs-sm);
+    }
+
+    .btn--danger {
+      background: transparent;
+      color: var(--clr-danger);
+      border-color: var(--clr-danger);
+    }
+
+    .btn--danger:hover {
+      background: var(--clr-danger);
+      color: var(--clr-white);
+    }
+
+    .posts-empty {
+      text-align: center;
+      padding: var(--sp-xl);
+      color: var(--clr-gray-400);
+      font-size: var(--fs-base);
+    }
+
+    /* ---- Toast notification ---- */
+    .toast {
+      position: fixed;
+      bottom: var(--sp-xl);
+      right: var(--sp-xl);
+      background: var(--clr-navy);
+      color: var(--clr-white);
+      padding: var(--sp-md) var(--sp-lg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 300;
+    }
+
+    .toast.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (min-width: 600px) {
+      .meta-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .meta-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-wrap">
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Zur Startseite von Dr. med. Thomas Pap">
+        <img src="img/icons/logo.png" alt="" class="logo__img" width="42" height="42">
+        <span class="logo__text">
+          <span class="logo__name">Dr. med. Thomas Pap</span>
+          <span class="logo__subtitle">Innere Medizin &amp; Kardiologie</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <ul class="main-nav__list">
+          <li><a href="blog.html" class="main-nav__link">Zurück zum Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== LOGIN ========== -->
+  <section id="login-view" class="admin-main">
+    <div class="login-box">
+      <div class="login-box__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h1>Blog-Verwaltung</h1>
+      <p>Bitte melden Sie sich an, um Beiträge zu verwalten.</p>
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-user">Benutzername</label>
+          <input class="form-input" type="text" id="login-user" autocomplete="username" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-pass">Passwort</label>
+          <input class="form-input" type="password" id="login-pass" autocomplete="current-password" required>
+          <p class="form-error" id="login-error">Benutzername oder Passwort falsch.</p>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width: 100%;">Anmelden</button>
+      </form>
+      <p style="margin-top: var(--sp-lg); font-size: var(--fs-sm); color: var(--clr-gray-400);">
+        Standard: <strong>admin</strong> / <strong>kardiologie2026</strong><br>
+        <em>(Bitte nach erstem Login ändern)</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== DASHBOARD ========== -->
+  <section id="dashboard-view" class="admin-main" style="display:none;">
+    <div class="container">
+
+      <div class="admin-header">
+        <h1>Blog-Verwaltung</h1>
+        <div class="admin-actions">
+          <button class="btn btn--primary" id="btn-new-post">Neuer Beitrag</button>
+          <button class="btn btn--outline-dark" id="btn-logout">Abmelden</button>
+        </div>
+      </div>
+
+      <!-- ---- Editor (hidden by default) ---- -->
+      <div id="editor-section" style="display:none;">
+
+        <div class="editor-card">
+          <h2 id="editor-heading">Neuer Beitrag</h2>
+
+          <!-- Thumbnail -->
+          <div class="form-group">
+            <label class="form-label">Thumbnail</label>
+            <div class="thumb-picker">
+              <div class="thumb-preview" id="thumb-preview">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <div class="thumb-picker__controls">
+                <input class="form-input" type="file" id="thumb-file" accept="image/*">
+                <p class="thumb-picker__hint">Oder Bild-URL eingeben:</p>
+                <input class="form-input" type="url" id="thumb-url" placeholder="https://...">
+              </div>
+            </div>
+          </div>
+
+          <!-- Meta fields -->
+          <div class="meta-grid">
+            <div class="form-group">
+              <label class="form-label" for="post-date">Datum</label>
+              <input class="form-input" type="date" id="post-date" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="post-location">Ort</label>
+              <input class="form-input" type="text" id="post-location" placeholder="z. B. Graz">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="post-category">Thema / Kategorie</label>
+              <input class="form-input" type="text" id="post-category" list="category-list" placeholder="z. B. Herzgesundheit">
+              <datalist id="category-list">
+                <option value="Herzgesundheit"></option>
+                <option value="Vorsorge"></option>
+                <option value="Diagnostik"></option>
+                <option value="Lebensstil"></option>
+                <option value="Ordination"></option>
+                <option value="Fortbildung"></option>
+              </datalist>
+            </div>
+          </div>
+
+          <!-- Title -->
+          <div class="form-group">
+            <label class="form-label" for="post-title">Überschrift</label>
+            <input class="form-input" type="text" id="post-title" placeholder="Titel des Beitrags" required style="font-size: var(--fs-lg); font-weight: var(--fw-bold);">
+          </div>
+        </div>
+
+        <!-- Rich text editor -->
+        <div class="editor-card">
+          <h2>Textinhalt</h2>
+
+          <div class="editor-toolbar" id="toolbar" role="toolbar" aria-label="Textformatierung">
+            <!-- Block format -->
+            <select id="format-block" title="Absatzformat" aria-label="Absatzformat">
+              <option value="p">Absatz</option>
+              <option value="h2">Überschrift 2</option>
+              <option value="h3">Überschrift 3</option>
+              <option value="blockquote">Zitat</option>
+            </select>
+            <div class="toolbar-sep"></div>
+
+            <!-- Inline formatting -->
+            <button type="button" data-cmd="bold" title="Fett (Ctrl+B)" aria-label="Fett">
+              <svg viewBox="0 0 24 24"><path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/><path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/></svg>
+            </button>
+            <button type="button" data-cmd="italic" title="Kursiv (Ctrl+I)" aria-label="Kursiv">
+              <svg viewBox="0 0 24 24"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg>
+            </button>
+            <button type="button" data-cmd="underline" title="Unterstrichen (Ctrl+U)" aria-label="Unterstrichen">
+              <svg viewBox="0 0 24 24"><path d="M6 3v7a6 6 0 0 0 6 6 6 6 0 0 0 6-6V3"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
+            </button>
+            <button type="button" data-cmd="strikeThrough" title="Durchgestrichen" aria-label="Durchgestrichen">
+              <svg viewBox="0 0 24 24"><line x1="4" y1="12" x2="20" y2="12"/><path d="M17.5 7.5c0-2-2.5-3.5-5.5-3.5S6.5 5.5 6.5 7.5c0 4 11 4 11 8 0 2-2.5 3.5-5.5 3.5S6.5 16.5 6.5 14.5"/></svg>
+            </button>
+            <div class="toolbar-sep"></div>
+
+            <!-- Font size -->
+            <select id="font-size" title="Schriftgröße" aria-label="Schriftgröße">
+              <option value="">Schriftgröße</option>
+              <option value="1">Klein</option>
+              <option value="3">Normal</option>
+              <option value="5">Groß</option>
+              <option value="7">Sehr groß</option>
+            </select>
+            <div class="toolbar-sep"></div>
+
+            <!-- Color -->
+            <button type="button" id="btn-color" title="Textfarbe" aria-label="Textfarbe" style="position:relative;">
+              <svg viewBox="0 0 24 24"><path d="M12 3l7 16h-4l-1.5-4h-5L7 19H3z"/></svg>
+            </button>
+            <input type="color" id="color-picker" value="#333b4a" style="position:absolute;width:0;height:0;opacity:0;pointer-events:none;" aria-hidden="true">
+            <div class="toolbar-sep"></div>
+
+            <!-- Lists -->
+            <button type="button" data-cmd="insertUnorderedList" title="Aufzählung" aria-label="Aufzählung">
+              <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1" fill="currentColor" stroke="none"/></svg>
+            </button>
+            <button type="button" data-cmd="insertOrderedList" title="Nummerierte Liste" aria-label="Nummerierte Liste">
+              <svg viewBox="0 0 24 24"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><text x="4" y="8" font-size="7" fill="currentColor" stroke="none" font-family="sans-serif">1</text><text x="4" y="14" font-size="7" fill="currentColor" stroke="none" font-family="sans-serif">2</text><text x="4" y="20" font-size="7" fill="currentColor" stroke="none" font-family="sans-serif">3</text></svg>
+            </button>
+            <div class="toolbar-sep"></div>
+
+            <!-- Alignment -->
+            <button type="button" data-cmd="justifyLeft" title="Linksbündig" aria-label="Linksbündig">
+              <svg viewBox="0 0 24 24"><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="17" y1="14" x2="3" y2="14"/><line x1="21" y1="18" x2="3" y2="18"/></svg>
+            </button>
+            <button type="button" data-cmd="justifyCenter" title="Zentriert" aria-label="Zentriert">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="10" x2="6" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="18" y1="14" x2="6" y2="14"/><line x1="21" y1="18" x2="3" y2="18"/></svg>
+            </button>
+            <div class="toolbar-sep"></div>
+
+            <!-- Link -->
+            <button type="button" id="btn-link" title="Link einfügen" aria-label="Link einfügen">
+              <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </button>
+
+            <!-- Remove formatting -->
+            <button type="button" data-cmd="removeFormat" title="Formatierung entfernen" aria-label="Formatierung entfernen">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+
+          <div class="editor-body" id="editor-body" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Beitragstext">
+            <p>Beginnen Sie hier mit dem Schreiben...</p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div style="display: flex; gap: var(--sp-md); flex-wrap: wrap;">
+          <button class="btn btn--primary btn--lg" id="btn-save">Beitrag speichern</button>
+          <button class="btn btn--outline-dark" id="btn-cancel">Abbrechen</button>
+        </div>
+      </div>
+
+      <!-- ---- Existing posts list ---- -->
+      <div id="posts-section">
+        <h2 style="font-size: var(--fs-lg); font-family: var(--ff-body); margin-bottom: var(--sp-lg);">Vorhandene Beiträge</h2>
+        <div id="posts-list" class="posts-list"></div>
+        <p id="posts-empty" class="posts-empty" style="display:none;">Noch keine Beiträge vorhanden. Erstellen Sie Ihren ersten Beitrag!</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  </div><!-- /admin-wrap -->
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ==========================
+         Helpers
+         ========================== */
+      function $(sel) { return document.querySelector(sel); }
+      function $$(sel) { return document.querySelectorAll(sel); }
+
+      function toast(msg) {
+        var t = $('#toast');
+        t.textContent = msg;
+        t.classList.add('is-visible');
+        setTimeout(function () { t.classList.remove('is-visible'); }, 2500);
+      }
+
+      function getPosts() {
+        try { return JSON.parse(localStorage.getItem('drpap_blog_posts') || '[]'); }
+        catch (e) { return []; }
+      }
+      function savePosts(arr) { localStorage.setItem('drpap_blog_posts', JSON.stringify(arr)); }
+
+      /* ==========================
+         Authentication
+         ========================== */
+      var CREDENTIALS_KEY = 'drpap_blog_creds';
+      var SESSION_KEY = 'drpap_blog_session';
+
+      function getCredentials() {
+        try {
+          var stored = JSON.parse(localStorage.getItem(CREDENTIALS_KEY));
+          if (stored && stored.user && stored.pass) return stored;
+        } catch (e) {}
+        return { user: 'admin', pass: 'kardiologie2026' };
+      }
+
+      function isLoggedIn() {
+        return sessionStorage.getItem(SESSION_KEY) === 'true';
+      }
+
+      var loginView = $('#login-view');
+      var dashView = $('#dashboard-view');
+
+      function showDashboard() {
+        loginView.style.display = 'none';
+        dashView.style.display = 'block';
+        renderPostsList();
+      }
+
+      if (isLoggedIn()) showDashboard();
+
+      $('#login-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var creds = getCredentials();
+        var user = $('#login-user').value.trim();
+        var pass = $('#login-pass').value;
+        if (user === creds.user && pass === creds.pass) {
+          sessionStorage.setItem(SESSION_KEY, 'true');
+          $('#login-error').style.display = 'none';
+          showDashboard();
+          toast('Willkommen!');
+        } else {
+          $('#login-error').style.display = 'block';
+        }
+      });
+
+      $('#btn-logout').addEventListener('click', function () {
+        sessionStorage.removeItem(SESSION_KEY);
+        location.reload();
+      });
+
+      /* ==========================
+         Thumbnail handling
+         ========================== */
+      var currentThumb = '';
+
+      $('#thumb-file').addEventListener('change', function (e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function (ev) {
+          currentThumb = ev.target.result;
+          $('#thumb-preview').innerHTML = '<img src="' + currentThumb + '" alt="Vorschau">';
+          $('#thumb-url').value = '';
+        };
+        reader.readAsDataURL(file);
+      });
+
+      $('#thumb-url').addEventListener('input', function () {
+        var url = this.value.trim();
+        if (url) {
+          currentThumb = url;
+          $('#thumb-preview').innerHTML = '<img src="' + url + '" alt="Vorschau">';
+        }
+      });
+
+      function resetThumb() {
+        currentThumb = '';
+        $('#thumb-preview').innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
+        $('#thumb-file').value = '';
+        $('#thumb-url').value = '';
+      }
+
+      /* ==========================
+         Rich Text Editor
+         ========================== */
+      var editorBody = $('#editor-body');
+
+      // Command buttons
+      $$('[data-cmd]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          editorBody.focus();
+          document.execCommand(btn.dataset.cmd, false, null);
+        });
+      });
+
+      // Format block
+      $('#format-block').addEventListener('change', function () {
+        editorBody.focus();
+        document.execCommand('formatBlock', false, '<' + this.value + '>');
+      });
+
+      // Font size
+      $('#font-size').addEventListener('change', function () {
+        if (this.value) {
+          editorBody.focus();
+          document.execCommand('fontSize', false, this.value);
+        }
+        this.value = '';
+      });
+
+      // Text color
+      $('#btn-color').addEventListener('click', function (e) {
+        e.preventDefault();
+        $('#color-picker').click();
+      });
+      $('#color-picker').addEventListener('input', function () {
+        editorBody.focus();
+        document.execCommand('foreColor', false, this.value);
+      });
+
+      // Link
+      $('#btn-link').addEventListener('click', function (e) {
+        e.preventDefault();
+        var url = prompt('Link-URL eingeben:', 'https://');
+        if (url) {
+          editorBody.focus();
+          document.execCommand('createLink', false, url);
+        }
+      });
+
+      /* ==========================
+         Post CRUD
+         ========================== */
+      var editingIdx = -1;
+      var editorSection = $('#editor-section');
+      var postsSection = $('#posts-section');
+
+      function openEditor(idx) {
+        editingIdx = typeof idx === 'number' ? idx : -1;
+        editorSection.style.display = 'block';
+        postsSection.style.display = 'none';
+
+        if (editingIdx >= 0) {
+          var post = getPosts()[editingIdx];
+          $('#editor-heading').textContent = 'Beitrag bearbeiten';
+          $('#post-title').value = post.title;
+          $('#post-date').value = post.date;
+          $('#post-location').value = post.location || '';
+          $('#post-category').value = post.category || '';
+          editorBody.innerHTML = post.body;
+          if (post.thumbnail) {
+            currentThumb = post.thumbnail;
+            $('#thumb-preview').innerHTML = '<img src="' + post.thumbnail + '" alt="Vorschau">';
+          } else {
+            resetThumb();
+          }
+        } else {
+          $('#editor-heading').textContent = 'Neuer Beitrag';
+          $('#post-title').value = '';
+          $('#post-date').value = new Date().toISOString().split('T')[0];
+          $('#post-location').value = 'Graz';
+          $('#post-category').value = '';
+          editorBody.innerHTML = '<p>Beginnen Sie hier mit dem Schreiben...</p>';
+          resetThumb();
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function closeEditor() {
+        editorSection.style.display = 'none';
+        postsSection.style.display = 'block';
+        editingIdx = -1;
+        renderPostsList();
+      }
+
+      $('#btn-new-post').addEventListener('click', function () { openEditor(); });
+      $('#btn-cancel').addEventListener('click', closeEditor);
+
+      $('#btn-save').addEventListener('click', function () {
+        var title = $('#post-title').value.trim();
+        var date = $('#post-date').value;
+        var body = editorBody.innerHTML.trim();
+
+        if (!title) { toast('Bitte Überschrift eingeben.'); $('#post-title').focus(); return; }
+        if (!date) { toast('Bitte Datum auswählen.'); $('#post-date').focus(); return; }
+        if (!body || body === '<p>Beginnen Sie hier mit dem Schreiben...</p>') {
+          toast('Bitte Text eingeben.'); editorBody.focus(); return;
+        }
+
+        var post = {
+          title: title,
+          date: date,
+          location: $('#post-location').value.trim(),
+          category: $('#post-category').value.trim(),
+          thumbnail: currentThumb,
+          body: body,
+          created: new Date().toISOString()
+        };
+
+        var posts = getPosts();
+        if (editingIdx >= 0) {
+          post.created = posts[editingIdx].created || post.created;
+          posts[editingIdx] = post;
+          toast('Beitrag aktualisiert.');
+        } else {
+          posts.push(post);
+          toast('Beitrag veröffentlicht!');
+        }
+        savePosts(posts);
+        closeEditor();
+      });
+
+      function deletePost(idx) {
+        if (!confirm('Beitrag wirklich löschen?')) return;
+        var posts = getPosts();
+        posts.splice(idx, 1);
+        savePosts(posts);
+        toast('Beitrag gelöscht.');
+        renderPostsList();
+      }
+
+      /* ==========================
+         Posts list rendering
+         ========================== */
+      function renderPostsList() {
+        var posts = getPosts();
+        var list = $('#posts-list');
+        var empty = $('#posts-empty');
+
+        posts.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+        savePosts(posts); // keep sorted
+
+        if (posts.length === 0) {
+          list.innerHTML = '';
+          empty.style.display = 'block';
+          return;
+        }
+        empty.style.display = 'none';
+        list.innerHTML = '';
+
+        posts.forEach(function (post, idx) {
+          var item = document.createElement('div');
+          item.className = 'posts-list__item';
+
+          var thumbHtml = post.thumbnail
+            ? '<img src="' + post.thumbnail + '" alt="">'
+            : '<div style="width:100%;height:100%;background:var(--clr-gray-100);"></div>';
+
+          var d = new Date(post.date);
+          var dateStr = d.toLocaleDateString('de-AT', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+          item.innerHTML =
+            '<div class="posts-list__thumb">' + thumbHtml + '</div>' +
+            '<div class="posts-list__info">' +
+              '<div class="posts-list__title">' + post.title + '</div>' +
+              '<div class="posts-list__meta">' + dateStr +
+                (post.category ? ' · ' + post.category : '') +
+                (post.location ? ' · ' + post.location : '') +
+              '</div>' +
+            '</div>' +
+            '<div class="posts-list__actions">' +
+              '<button class="btn btn--outline-dark btn--sm btn-edit" data-idx="' + idx + '">Bearbeiten</button>' +
+              '<button class="btn btn--danger btn--sm btn-delete" data-idx="' + idx + '">Löschen</button>' +
+            '</div>';
+
+          list.appendChild(item);
+        });
+
+        // Bind edit/delete
+        list.querySelectorAll('.btn-edit').forEach(function (btn) {
+          btn.addEventListener('click', function () { openEditor(parseInt(this.dataset.idx)); });
+        });
+        list.querySelectorAll('.btn-delete').forEach(function (btn) {
+          btn.addEventListener('click', function () { deletePost(parseInt(this.dataset.idx)); });
+        });
+      }
+
+      /* ---- Sticky header shadow ---- */
+      var header = document.querySelector('.site-header');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+      }, { passive: true });
+
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kontakt – Dr. med. Thomas Pap | Kardiologie Graz</title>
+  <meta name="description" content="So erreichen Sie die Ordination von Dr. Thomas Pap in Graz: Adresse, Telefon, E-Mail, Öffnungszeiten und Anfahrt. Wahlarzt für Kardiologie und Innere Medizin.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.kardiologie-pap.at/kontakt/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kontakt – Dr. med. Thomas Pap, Kardiologe Graz">
+  <meta property="og:description" content="Adresse, Telefon, E-Mail und Öffnungszeiten der kardiologischen Wahlarzt-Ordination in Graz.">
+  <meta property="og:url" content="https://www.kardiologie-pap.at/kontakt/">
+  <meta property="og:locale" content="de_AT">
+  <meta property="og:site_name" content="Dr. med. Thomas Pap">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /* Page-specific: contact layout */
+    .contact-grid {
+      display: grid;
+      gap: var(--sp-2xl);
+    }
+    .contact-card {
+      padding: var(--sp-xl);
+      background: var(--clr-white);
+      border: 1px solid var(--clr-gray-200);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-card__icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--clr-blue-light);
+      border-radius: 50%;
+      margin-bottom: var(--sp-md);
+    }
+    .contact-card__title {
+      font-family: var(--ff-body);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      margin-bottom: var(--sp-sm);
+    }
+    .contact-card__text {
+      color: var(--clr-text-light);
+      line-height: var(--lh-normal);
+    }
+    .contact-card__text a {
+      font-weight: var(--fw-medium);
+    }
+    .contact-cards-row {
+      display: grid;
+      gap: var(--sp-lg);
+    }
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--sp-md);
+    }
+    .hours-table th,
+    .hours-table td {
+      text-align: left;
+      padding: var(--sp-sm) var(--sp-md);
+      font-size: var(--fs-base);
+      border-bottom: 1px solid var(--clr-gray-200);
+    }
+    .hours-table th {
+      font-weight: var(--fw-semibold);
+      color: var(--clr-navy);
+      width: 40%;
+    }
+    .hours-table td {
+      color: var(--clr-text-light);
+    }
+    .hours-table tr:last-child th,
+    .hours-table tr:last-child td {
+      border-bottom: none;
+    }
+    .map-wrap {
+      width: 100%;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      background: var(--clr-gray-100);
+    }
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 380px;
+      border: 0;
+      filter: grayscale(100%) contrast(1.1);
+    }
+    .anfahrt-text {
+      color: var(--clr-text-light);
+      line-height: var(--lh-loose);
+      margin-top: var(--sp-lg);
+    }
+    .anfahrt-text + .anfahrt-text {
+      margin-top: var(--sp-md);
+    }
+    .contact-card__icon svg,
+    .map-placeholder__icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--clr-navy);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .img-placeholder {
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+    }
+    .img-placeholder img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .img-wide {
+      max-width: 100%;
+    }
+    @media (min-width: 600px) {
+      .contact-cards-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Zur Startseite von Dr. med. Thomas Pap">
+        <img src="/img/icons/logo.png" alt="" class="logo__img" width="42" height="42">
+        <span class="logo__text">
+          <span class="logo__name">Dr. med. Thomas Pap</span>
+          <span class="logo__subtitle">Innere Medizin &amp; Kardiologie</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <ul class="main-nav__list">
+          <li><a href="/" class="main-nav__link">Startseite</a></li>
+          <li><a href="/ueber-mich/" class="main-nav__link">Über mich</a></li>
+          <li><a href="/leistungen/" class="main-nav__link">Leistungen</a></li>
+          <li><a href="/blog/" class="main-nav__link">Blog</a></li>
+          <li><a href="/faq/" class="main-nav__link">FAQ</a></li>
+          <li><a href="/termin/" class="main-nav__link">Termin buchen</a></li>
+          <li><a href="/kontakt/" class="main-nav__link main-nav__link--active" aria-current="page">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" aria-hidden="true">
+    <ul class="mobile-nav__list">
+      <li><a href="/" class="mobile-nav__link">Startseite</a></li>
+      <li><a href="/ueber-mich/" class="mobile-nav__link">Über mich</a></li>
+      <li><a href="/leistungen/" class="mobile-nav__link">Leistungen</a></li>
+      <li><a href="/blog/" class="mobile-nav__link">Blog</a></li>
+      <li><a href="/faq/" class="mobile-nav__link">FAQ</a></li>
+      <li><a href="/termin/" class="mobile-nav__link">Termin buchen</a></li>
+      <li><a href="/kontakt/" class="mobile-nav__link" aria-current="page">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== MAIN ========== -->
+  <main id="main-content">
+
+    <!-- Page Hero -->
+    <section class="hero hero--compact" aria-labelledby="page-title">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__overline">Kontakt</span>
+          <h1 id="page-title" class="hero__title">So erreichen Sie meine Ordination</h1>
+          <p class="hero__text">
+            Ich freue mich auf Ihre Kontaktaufnahme. Hier finden Sie alle wichtigen
+            Informationen zu Adresse, Erreichbarkeit und Öffnungszeiten.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Info + Map -->
+    <section class="section" aria-labelledby="kontakt-title">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Left: Contact Cards -->
+          <div>
+            <h2 id="kontakt-title" class="sr-only">Kontaktinformationen</h2>
+
+            <div class="contact-cards-row">
+              <div class="contact-card">
+                <div class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <h3 class="contact-card__title">Adresse</h3>
+                <p class="contact-card__text">
+                  Dr. med. Thomas Pap<br>
+                  Hans-Sachs-Gasse 14<br>
+                  8010 Graz, Steiermark
+                </p>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                <h3 class="contact-card__title">Telefon</h3>
+                <p class="contact-card__text">
+                  <a href="tel:+436764501256">+43 676 450 125 6</a><br>
+                  <small>Ordinationszeiten: Do 16:00–21:00</small>
+                </p>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <h3 class="contact-card__title">E-Mail</h3>
+                <p class="contact-card__text">
+                  <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a><br>
+                  <small>Wir antworten in der Regel innerhalb eines Werktages.</small>
+                </p>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                <h3 class="contact-card__title">Sprachen</h3>
+                <p class="contact-card__text">
+                  Deutsch, Englisch
+                </p>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <h3 class="contact-card__title">Online-Termin</h3>
+                <p class="contact-card__text">
+                  <a href="/termin/">Termin online buchen</a><br>
+                  <small>Rund um die Uhr verfügbar.</small>
+                </p>
+              </div>
+            </div>
+
+            <!-- Öffnungszeiten-Tabelle -->
+            <div class="contact-card" style="margin-top: var(--sp-lg);">
+              <div class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <h3 class="contact-card__title">Öffnungszeiten</h3>
+              <table class="hours-table" aria-label="Öffnungszeiten der Ordination">
+                <tbody>
+                  <tr>
+                    <th scope="row">Donnerstag</th>
+                    <td>16:00 – 21:00 Uhr</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Übrige Tage</th>
+                    <td>Nach Vereinbarung</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="contact-card__text" style="margin-top: var(--sp-md); font-style: italic;">
+                Termine außerhalb der regulären Öffnungszeiten sind nach Absprache möglich.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Map + Anfahrt -->
+          <div>
+            <!-- Google Maps – Schwarz-Weiß -->
+            <div class="map-wrap" role="region" aria-label="Kartenansicht Ordinationsstandort">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2718.1!2d15.4386!3d47.0697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476e357b5bce1c5f%3A0x0!2sHans-Sachs-Gasse%2014%2C%208010%20Graz!5e0!3m2!1sde!2sat!4v1"
+                title="Standort der Ordination Dr. Pap – Hans-Sachs-Gasse 14, 8010 Graz"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <!-- Anfahrtshinweise -->
+            <div style="margin-top: var(--sp-xl);">
+              <h3 style="font-size: var(--fs-lg); font-family: var(--ff-body); font-weight: var(--fw-bold); margin-bottom: var(--sp-sm);">
+                Anfahrt und Parken
+              </h3>
+              <p class="anfahrt-text">
+                Die Ordination befindet sich zentral in Graz und ist sowohl mit öffentlichen
+                Verkehrsmitteln als auch mit dem Auto gut erreichbar.
+              </p>
+              <p class="anfahrt-text">
+                <strong>Öffentliche Verkehrsmittel:</strong> Die nächste Straßenbahnhaltestelle
+                ist nur wenige Gehminuten entfernt. Aktuelle Verbindungen finden Sie auf
+                <a href="https://www.holding-graz.at/linien" target="_blank" rel="noopener noreferrer">holding-graz.at</a>.
+              </p>
+              <p class="anfahrt-text">
+                <strong>Mit dem Auto:</strong> Parkmöglichkeiten finden Sie in der direkten Umgebung
+                der Ordination. Bitte beachten Sie die Kurzparkzonen in der Grazer Innenstadt.
+              </p>
+              <p class="anfahrt-text">
+                <strong>Barrierefreier Zugang:</strong> Die Ordination ist barrierefrei zugänglich.
+                Sollten Sie besondere Unterstützung benötigen, informieren Sie uns bitte bei
+                der Terminvereinbarung.
+              </p>
+
+              <!-- Ordination exterior image -->
+              <div class="img-placeholder img-wide" style="margin-top: var(--sp-xl);">
+                <img src="/img/photos/Ord1.png" alt="Empfangsbereich der kardiologischen Ordination Dr. Pap in Graz" width="640" height="360" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title" class="cta-section__title">Bereit für Ihren Termin?</h2>
+        <p class="cta-section__text">
+          Buchen Sie jetzt online oder rufen Sie uns an. Wir freuen uns auf Sie.
+        </p>
+        <a href="/termin/" class="btn btn--primary btn--lg">Termin vereinbaren</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer__heading">Dr. med. Thomas Pap</p>
+          <p class="footer__text">
+            Facharzt für Innere Medizin und Kardiologie<br>
+            Wahlarzt-Ordination in Graz
+          </p>
+          <p class="footer__text" style="margin-top: var(--sp-md);">
+            <a href="tel:+436764501256">+43 676 450 125 6</a><br>
+            <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+          </p>
+        </div>
+        <div>
+          <p class="footer__heading">Navigation</p>
+          <ul class="footer__nav-list">
+            <li><a href="/" class="footer__nav-link">Startseite</a></li>
+            <li><a href="/ueber-mich/" class="footer__nav-link">Über mich</a></li>
+            <li><a href="/leistungen/" class="footer__nav-link">Leistungen</a></li>
+            <li><a href="/blog/" class="footer__nav-link">Blog</a></li>
+            <li><a href="/faq/" class="footer__nav-link">FAQ</a></li>
+            <li><a href="/termin/" class="footer__nav-link">Termin buchen</a></li>
+            <li><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Öffnungszeiten</p>
+          <p class="footer__text">
+            Do: 16:00 – 21:00 Uhr<br>
+            
+            <em>Termine nach Vereinbarung</em>
+          </p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Dr. med. Thomas Pap. Alle Rechte vorbehalten.</span>
+        <span>
+          <a href="/impressum/">Impressum</a> &middot;
+          <a href="/datenschutz/">Datenschutz</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var burger = document.querySelector('.burger');
+      var mobileNav = document.getElementById('mobile-nav');
+      var mobileLinks = mobileNav.querySelectorAll('.mobile-nav__link');
+      function toggleMenu() {
+        var isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        burger.setAttribute('aria-label', isOpen ? 'Menü öffnen' : 'Menü schließen');
+        mobileNav.setAttribute('aria-hidden', String(isOpen));
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+      }
+      burger.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          burger.setAttribute('aria-expanded', 'false');
+          burger.setAttribute('aria-label', 'Menü öffnen');
+          mobileNav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+          toggleMenu(); burger.focus();
+        }
+      });
+      var header = document.querySelector('.site-header');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

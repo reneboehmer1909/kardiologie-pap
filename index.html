@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Dr. med. Thomas Pap – Facharzt für Innere Medizin &amp; Kardiologie in Graz</title>
+  <meta name="description" content="Wahlarzt-Ordination für Kardiologie und Innere Medizin in Graz. Dr. Thomas Pap bietet Herzultraschall, EKG, Vorsorge und persönliche Betreuung – ohne Kassenhektik.">
+  <meta name="keywords" content="Kardiologe Graz, Wahlarzt Kardiologie, Internist Graz, Herzultraschall, EKG Graz, Dr. Thomas Pap">
+  <meta name="author" content="Dr. med. Thomas Pap">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.kardiologie-pap.at/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dr. med. Thomas Pap – Kardiologe &amp; Internist in Graz">
+  <meta property="og:description" content="Wahlarzt-Ordination für Kardiologie in Graz. Persönliche Betreuung, modernste Diagnostik, keine Wartezeiten.">
+  <meta property="og:url" content="https://www.kardiologie-pap.at/">
+  <meta property="og:locale" content="de_AT">
+  <meta property="og:site_name" content="Dr. med. Thomas Pap">
+  <meta property="og:image" content="https://www.kardiologie-pap.at/img/photos/Portrait.jpg">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Page-specific styles -->
+  <style>
+    /* ---- Home intro: image + text ---- */
+    .home-intro {
+      display: grid;
+      gap: var(--sp-2xl);
+    }
+
+    .home-intro__img {
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .home-intro__img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .home-intro__content p {
+      color: var(--clr-text-light);
+      line-height: var(--lh-loose);
+    }
+
+    .home-intro__content p + p {
+      margin-top: var(--sp-md);
+    }
+
+    /* Highlights row */
+    .home-highlights {
+      display: grid;
+      gap: var(--sp-md);
+      margin-top: var(--sp-2xl);
+    }
+
+    @media (min-width: 600px) {
+      .home-highlights {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .home-intro {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: var(--sp-3xl);
+      }
+    }
+  </style>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "name": "Dr. med. Thomas Pap",
+    "description": "Facharzt für Innere Medizin und Kardiologie – Wahlarzt-Ordination in Graz",
+    "url": "https://www.kardiologie-pap.at",
+    "telephone": "+43-676-4501256",
+    "email": "mail@kardiologie-pap.at",
+    "knowsLanguage": ["de", "en"],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "16:00",
+      "closes": "21:00"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Hans-Sachs-Gasse 14",
+      "addressLocality": "Graz",
+      "postalCode": "8010",
+      "addressRegion": "Steiermark",
+      "addressCountry": "AT"
+    },
+    "medicalSpecialty": ["Cardiology", "InternalMedicine"],
+    "availableService": [
+      { "@type": "MedicalProcedure", "name": "Echokardiographie" },
+      { "@type": "MedicalProcedure", "name": "Ruhe-EKG" },
+      { "@type": "MedicalProcedure", "name": "Belastungs-EKG" },
+      { "@type": "MedicalProcedure", "name": "24h-EKG" },
+      { "@type": "MedicalProcedure", "name": "24h-Blutdruckmessung" },
+      { "@type": "MedicalProcedure", "name": "Vorsorgeuntersuchung" }
+    ],
+    "image": "https://www.kardiologie-pap.at/img/photos/Portrait.jpg"
+  }
+  </script>
+
+  <!-- Preload hero video poster -->
+  <link rel="preload" as="image" href="img/photos/Ord1.png">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Zur Startseite von Dr. med. Thomas Pap">
+        <img src="img/icons/logo.png" alt="" class="logo__img" width="42" height="42">
+        <span class="logo__text">
+          <span class="logo__name">Dr. med. Thomas Pap</span>
+          <span class="logo__subtitle">Innere Medizin &amp; Kardiologie</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <ul class="main-nav__list">
+          <li><a href="/" class="main-nav__link main-nav__link--active" aria-current="page">Startseite</a></li>
+          <li><a href="/ueber-mich/" class="main-nav__link">Über mich</a></li>
+          <li><a href="/leistungen/" class="main-nav__link">Leistungen</a></li>
+          <li><a href="/blog/" class="main-nav__link">Blog</a></li>
+          <li><a href="/faq/" class="main-nav__link">FAQ</a></li>
+          <li><a href="/termin/" class="main-nav__link">Termin buchen</a></li>
+          <li><a href="/kontakt/" class="main-nav__link">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" aria-hidden="true">
+    <ul class="mobile-nav__list">
+      <li><a href="/" class="mobile-nav__link" aria-current="page">Startseite</a></li>
+      <li><a href="/ueber-mich/" class="mobile-nav__link">Über mich</a></li>
+      <li><a href="/leistungen/" class="mobile-nav__link">Leistungen</a></li>
+      <li><a href="/blog/" class="mobile-nav__link">Blog</a></li>
+      <li><a href="/faq/" class="mobile-nav__link">FAQ</a></li>
+      <li><a href="/termin/" class="mobile-nav__link">Termin buchen</a></li>
+      <li><a href="/kontakt/" class="mobile-nav__link">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main-content">
+
+    <!-- Hero Section with Video Background (Desktop) -->
+    <section class="hero hero--video" aria-labelledby="hero-title">
+
+      <!-- Video Background (shown on desktop only via CSS) -->
+      <div class="hero__video-wrap">
+        <video autoplay muted loop playsinline poster="img/photos/Ord1.png">
+          <source src="img/video/header.mp4" type="video/mp4">
+        </video>
+        <div class="hero__video-overlay"></div>
+      </div>
+
+      <!-- Fallback Image (shown on mobile) -->
+      <div class="hero__fallback-img">
+        <img src="img/photos/Ord1.png" alt="" width="1920" height="800" loading="eager">
+      </div>
+
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__overline">Wahlarzt-Ordination in Graz</span>
+          <h1 id="hero-title" class="hero__title">Ihre Herzgesundheit verdient Zeit und Aufmerksamkeit</h1>
+          <p class="hero__text">
+            In meiner kardiologischen Ordination nehme ich mir die Zeit, die Sie und Ihr Herz verdienen.
+            Modernste Diagnostik, persönliche Beratung und keine Wartezeiten – damit Sie sich von Anfang an gut aufgehoben fühlen.
+          </p>
+          <div class="hero__actions">
+            <a href="/termin/" class="btn btn--primary btn--lg">Termin vereinbaren</a>
+            <a href="/leistungen/" class="btn btn--outline">Leistungen entdecken</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro / About Preview -->
+    <section class="section" aria-labelledby="intro-title">
+      <div class="container">
+
+        <!-- Section header -->
+        <div class="section__header" style="margin-bottom: var(--sp-2xl);">
+          <span class="section__overline">Willkommen in der Ordination</span>
+          <h2 id="intro-title" class="section__title">Medizin mit Empathie und Kompetenz</h2>
+        </div>
+
+        <!-- Photo + text -->
+        <div class="home-intro">
+          <div class="home-intro__img">
+            <img src="img/photos/Ord1.png" alt="Heller, einladender Empfangsbereich der Ordination Dr. Pap in Graz" width="640" height="480" loading="lazy">
+          </div>
+          <div class="home-intro__content">
+            <p>
+              Als Facharzt für Innere Medizin und Kardiologie ist es mir ein persönliches Anliegen,
+              jeden Patienten ganzheitlich zu betreuen. In meiner Wahlarzt-Ordination in Graz steht nicht die
+              Uhr im Vordergrund, sondern der Mensch.
+            </p>
+            <p>
+              Durch das Wahlarzt-System kann ich mir die nötige Zeit für ausführliche Gespräche,
+              gründliche Untersuchungen und eine individuelle Beratung nehmen. Sie profitieren von kurzen
+              Wartezeiten, modernster Diagnostik und einer Atmosphäre, in der Sie sich wohlfühlen.
+            </p>
+            <a href="/ueber-mich/" class="btn btn--outline-dark" style="margin-top: var(--sp-lg);">Mehr über mich erfahren</a>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <div class="home-highlights">
+          <div class="highlight-item">
+            <div class="highlight-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="highlight-item__content">
+              <h3>Ausführliche Gespräche</h3>
+              <p>Keine Kassenhektik – ich nehme mir genug Zeit, um Ihnen zuzuhören und Ihre Fragen zu beantworten.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="highlight-item__content">
+              <h3>Modernste Herzdiagnostik</h3>
+              <p>Vom Herzultraschall bis zum Belastungs-EKG – alle wichtigen Untersuchungen unter einem Dach.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="highlight-item__content">
+              <h3>Persönliche Betreuung</h3>
+              <p>Empathie, Vertrauen und höchste medizinische Standards bilden die Grundlage meiner Arbeit.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section section--alt" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__overline">Leistungsspektrum</span>
+          <h2 id="services-title" class="section__title">Kardiologische Diagnostik und Vorsorge</h2>
+          <p class="section__subtitle">
+            Meine Ordination bietet Ihnen ein breites Spektrum an internistischen und kardiologischen Untersuchungen – verständlich erklärt und auf Ihre Bedürfnisse abgestimmt.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 class="service-card__title">Herzultraschall</h3>
+            <p class="service-card__text">
+              Die Echokardiographie zeigt Struktur und Funktion Ihres Herzens in Echtzeit – schmerzfrei und ohne Strahlenbelastung.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="service-card__title">Ruhe- &amp; Belastungs-EKG</h3>
+            <p class="service-card__text">
+              Messung der Herzströme in Ruhe und unter körperlicher Belastung, um Rhythmusstörungen und Durchblutungsstörungen zu erkennen.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 13.5 13.5"/><path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 0 1 9.83 1h4.35a2 2 0 0 1 2 1.82l.35 3.83"/></svg>
+            </div>
+            <h3 class="service-card__title">24h-EKG &amp; Blutdruck</h3>
+            <p class="service-card__text">
+              Die Langzeitmessung über 24 Stunden erfasst Ihren Herzrhythmus und Blutdruck im Alltag – für eine besonders aussagekräftige Diagnose.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            </div>
+            <h3 class="service-card__title">Internistische OP-Freigabe</h3>
+            <p class="service-card__text">
+              Vor einem geplanten Eingriff überprüfe ich Ihren allgemeinen Gesundheitszustand und Ihr kardiovaskuläres Risiko sorgfältig.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="service-card__title">Vorsorgeuntersuchung</h3>
+            <p class="service-card__text">
+              Eine umfassende Gesundenuntersuchung, die Risikofaktoren frühzeitig erkennt und Ihnen Sicherheit für die Zukunft gibt.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="service-card__title">Nachsorge &amp; Begleitung</h3>
+            <p class="service-card__text">
+              Nach einem Eingriff oder bei chronischen Erkrankungen begleite ich Sie langfristig mit regelmäßigen Kontrollen und persönlicher Beratung.
+            </p>
+          </article>
+        </div>
+
+        <div class="text-center" style="margin-top: var(--sp-2xl);">
+          <a href="/leistungen/" class="btn btn--outline-dark">Alle Leistungen im Detail</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wahlarzt Info Banner -->
+    <section class="section" aria-labelledby="wahlarzt-title">
+      <div class="container container--narrow">
+        <div class="info-banner">
+          <h2 id="wahlarzt-title" class="info-banner__title">
+            So funktioniert das Wahlarzt-System
+          </h2>
+          <p class="info-banner__text">
+            Als Wahlarzt besteht kein direkter Vertrag mit den gesetzlichen Krankenkassen.
+            Das bedeutet für Sie: kürzere Wartezeiten, ausführlichere Gespräche und eine Betreuung
+            auf höchstem Niveau.
+          </p>
+          <p class="info-banner__text">
+            Die Honorarnote begleichen Sie direkt in der Ordination. Anschließend reichen Sie diese bei
+            Ihrer Krankenkasse ein und erhalten einen Teil der Kosten zurück – in der Regel bis zu 80 %
+            des Kassentarifs.
+          </p>
+          <p class="info-banner__text">
+            <strong>Sie haben Fragen zum Ablauf?</strong> Ich und mein Team informieren Sie gerne vor Ihrem
+            Ersttermin. Rufen Sie uns einfach an oder schreiben Sie uns.
+          </p>
+          <a href="/termin/" class="btn btn--primary" style="margin-top: var(--sp-lg);">Jetzt Termin vereinbaren</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title" class="cta-section__title">Ihr Herz liegt mir am Herzen</h2>
+        <p class="cta-section__text">
+          Vereinbaren Sie noch heute einen Termin in meiner Ordination in Graz. Ich freue mich darauf, Sie kennenzulernen.
+        </p>
+        <a href="/termin/" class="btn btn--primary btn--lg">Termin vereinbaren</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer__heading">Dr. med. Thomas Pap</p>
+          <p class="footer__text">
+            Facharzt für Innere Medizin und Kardiologie<br>
+            Wahlarzt-Ordination in Graz
+          </p>
+          <p class="footer__text" style="margin-top: var(--sp-md);">
+            <a href="tel:+436764501256">+43 676 450 125 6</a><br>
+            <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+          </p>
+        </div>
+        <div>
+          <p class="footer__heading">Navigation</p>
+          <ul class="footer__nav-list">
+            <li><a href="/" class="footer__nav-link">Startseite</a></li>
+            <li><a href="/ueber-mich/" class="footer__nav-link">Über mich</a></li>
+            <li><a href="/leistungen/" class="footer__nav-link">Leistungen</a></li>
+            <li><a href="/blog/" class="footer__nav-link">Blog</a></li>
+            <li><a href="/faq/" class="footer__nav-link">FAQ</a></li>
+            <li><a href="/termin/" class="footer__nav-link">Termin buchen</a></li>
+            <li><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Öffnungszeiten</p>
+          <p class="footer__text">
+            Do: 16:00 – 21:00 Uhr<br>
+            
+            <em>Termine nach Vereinbarung</em>
+          </p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Dr. med. Thomas Pap. Alle Rechte vorbehalten.</span>
+        <span>
+          <a href="/impressum/">Impressum</a> &middot;
+          <a href="/datenschutz/">Datenschutz</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var burger = document.querySelector('.burger');
+      var mobileNav = document.getElementById('mobile-nav');
+      var mobileLinks = mobileNav.querySelectorAll('.mobile-nav__link');
+
+      function toggleMenu() {
+        var isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        burger.setAttribute('aria-label', isOpen ? 'Menü öffnen' : 'Menü schließen');
+        mobileNav.setAttribute('aria-hidden', String(isOpen));
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+      }
+
+      burger.addEventListener('click', toggleMenu);
+
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          burger.setAttribute('aria-expanded', 'false');
+          burger.setAttribute('aria-label', 'Menü öffnen');
+          mobileNav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+          toggleMenu();
+          burger.focus();
+        }
+      });
+
+      var header = document.querySelector('.site-header');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

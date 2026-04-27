@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Termin vereinbaren – Dr. med. Thomas Pap | Kardiologe Graz</title>
+  <meta name="description" content="Buchen Sie Ihren Termin bei Dr. Thomas Pap, Facharzt für Kardiologie in Graz. Online-Terminbuchung, Wahlarzt-Prinzip erklärt, kaum Wartezeiten.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.kardiologie-pap.at/termin/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Termin vereinbaren – Dr. med. Thomas Pap, Graz">
+  <meta property="og:description" content="Einfach und schnell einen Termin buchen. Wahlarzt-Ordination für Kardiologie in Graz.">
+  <meta property="og:url" content="https://www.kardiologie-pap.at/termin/">
+  <meta property="og:locale" content="de_AT">
+  <meta property="og:site_name" content="Dr. med. Thomas Pap">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /* Page-specific: booking CTA & steps */
+    .booking-cta {
+      background: var(--clr-offwhite);
+      border: 1px solid var(--clr-gray-200);
+      border-radius: var(--border-radius-lg);
+      padding: var(--sp-2xl) var(--sp-xl);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-lg);
+    }
+    .booking-cta__icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--clr-blue-light);
+      border-radius: 50%;
+    }
+    .booking-cta__icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--clr-accent);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .booking-cta__text {
+      color: var(--clr-text-light);
+      line-height: var(--lh-normal);
+      max-width: 520px;
+      font-size: var(--fs-base);
+    }
+    .booking-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      font-size: var(--fs-lg);
+      padding: var(--sp-md) var(--sp-2xl);
+    }
+    .booking-cta__btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .booking-cta__hint {
+      font-size: var(--fs-sm);
+      color: var(--clr-gray-400);
+    }
+    .steps-grid {
+      display: grid;
+      gap: var(--sp-lg);
+      counter-reset: step;
+    }
+    .step-item {
+      display: flex;
+      gap: var(--sp-lg);
+      align-items: flex-start;
+    }
+    .step-item__number {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--clr-accent);
+      color: var(--clr-white);
+      border-radius: 50%;
+      font-family: var(--ff-heading);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+    }
+    .step-item__content h3 {
+      font-family: var(--ff-body);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      margin-bottom: var(--sp-xs);
+    }
+    .step-item__content p {
+      color: var(--clr-text-light);
+      line-height: var(--lh-normal);
+      font-size: var(--fs-base);
+    }
+    .contact-options {
+      display: grid;
+      gap: var(--sp-md);
+      margin-top: var(--sp-xl);
+    }
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+      padding: var(--sp-lg);
+      background: var(--clr-white);
+      border: 1px solid var(--clr-gray-200);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-option__icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--clr-blue-light);
+      border-radius: 50%;
+    }
+    .contact-option__text strong {
+      display: block;
+      color: var(--clr-navy);
+      margin-bottom: 2px;
+    }
+    .contact-option__text a {
+      font-weight: var(--fw-medium);
+    }
+    .contact-option__icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--clr-navy);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    @media (min-width: 600px) {
+      .contact-options {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Zur Startseite von Dr. med. Thomas Pap">
+        <img src="/img/icons/logo.png" alt="" class="logo__img" width="42" height="42">
+        <span class="logo__text">
+          <span class="logo__name">Dr. med. Thomas Pap</span>
+          <span class="logo__subtitle">Innere Medizin &amp; Kardiologie</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <ul class="main-nav__list">
+          <li><a href="/" class="main-nav__link">Startseite</a></li>
+          <li><a href="/ueber-mich/" class="main-nav__link">Über mich</a></li>
+          <li><a href="/leistungen/" class="main-nav__link">Leistungen</a></li>
+          <li><a href="/blog/" class="main-nav__link">Blog</a></li>
+          <li><a href="/faq/" class="main-nav__link">FAQ</a></li>
+          <li><a href="/termin/" class="main-nav__link main-nav__link--active" aria-current="page">Termin buchen</a></li>
+          <li><a href="/kontakt/" class="main-nav__link">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" aria-hidden="true">
+    <ul class="mobile-nav__list">
+      <li><a href="/" class="mobile-nav__link">Startseite</a></li>
+      <li><a href="/ueber-mich/" class="mobile-nav__link">Über mich</a></li>
+      <li><a href="/leistungen/" class="mobile-nav__link">Leistungen</a></li>
+      <li><a href="/blog/" class="mobile-nav__link">Blog</a></li>
+      <li><a href="/faq/" class="mobile-nav__link">FAQ</a></li>
+      <li><a href="/termin/" class="mobile-nav__link" aria-current="page">Termin buchen</a></li>
+      <li><a href="/kontakt/" class="mobile-nav__link">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== MAIN ========== -->
+  <main id="main-content">
+
+    <!-- Page Hero -->
+    <section class="hero hero--compact" aria-labelledby="page-title">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__overline">Terminvereinbarung</span>
+          <h1 id="page-title" class="hero__title">Ihren Termin bequem vereinbaren</h1>
+          <p class="hero__text">
+            Nutzen Sie die Online-Buchung oder kontaktieren Sie uns telefonisch.
+            Wir finden den passenden Termin für Sie – zeitnah und unkompliziert.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Online Booking Widget -->
+    <section class="section" aria-labelledby="booking-title">
+      <div class="container container--narrow">
+        <div class="section__header">
+          <span class="section__overline">Online buchen</span>
+          <h2 id="booking-title" class="section__title">Termin online vereinbaren</h2>
+          <p class="section__subtitle">
+            Wählen Sie einen freien Termin direkt in unserem Buchungssystem. Sollten Sie keinen passenden
+            Termin finden, kontaktieren Sie uns gerne telefonisch.
+          </p>
+        </div>
+
+        <!-- Latido Booking Button -->
+        <div class="booking-cta" role="region" aria-label="Online-Terminbuchung">
+          <div class="booking-cta__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+          </div>
+          <p class="booking-cta__text">
+            Buchen Sie Ihren Wunschtermin direkt über unser Online-Buchungssystem. Wählen Sie die gewünschte Untersuchung und einen freien Zeitpunkt – schnell, einfach und rund um die Uhr verfügbar.
+          </p>
+          <a href="https://patient.latido.at/arzt/_Pap" target="_blank" rel="noopener" class="btn btn--primary btn--lg booking-cta__btn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Jetzt Termin buchen
+          </a>
+          <p class="booking-cta__hint">Sie werden zu Latido weitergeleitet – unserem sicheren Buchungspartner.</p>
+        </div>
+
+        <!-- Alternative Contact -->
+        <div class="contact-options">
+          <div class="contact-option">
+            <div class="contact-option__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="contact-option__text">
+              <strong>Telefonisch</strong>
+              <a href="tel:+436764501256">+43 676 450 125 6</a>
+            </div>
+          </div>
+          <div class="contact-option">
+            <div class="contact-option__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="contact-option__text">
+              <strong>Per E-Mail</strong>
+              <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wahlarzt-Erklärung -->
+    <section class="section section--alt" aria-labelledby="wahlarzt-title">
+      <div class="container container--narrow">
+        <div class="section__header">
+          <span class="section__overline">Gut zu wissen</span>
+          <h2 id="wahlarzt-title" class="section__title">Das Wahlarzt-Prinzip einfach erklärt</h2>
+          <p class="section__subtitle">
+            Viele Patientinnen und Patienten fragen sich, was es bedeutet, einen Wahlarzt aufzusuchen.
+            Hier finden Sie die wichtigsten Informationen auf einen Blick.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-item__number">1</div>
+            <div class="step-item__content">
+              <h3>Termin vereinbaren</h3>
+              <p>
+                Buchen Sie online oder telefonisch einen Termin. Wir bestätigen Ihnen zeitnah den
+                gewünschten Zeitpunkt. Überweisungen sind willkommen, aber nicht zwingend erforderlich.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-item__number">2</div>
+            <div class="step-item__content">
+              <h3>Untersuchung und Beratung</h3>
+              <p>
+                Bei Ihrem Termin nehme ich mir ausreichend Zeit für eine gründliche Untersuchung und
+                eine ausführliche Besprechung der Ergebnisse. Sie erhalten Ihren Befund in der Regel
+                direkt im Anschluss.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-item__number">3</div>
+            <div class="step-item__content">
+              <h3>Honorarnote begleichen</h3>
+              <p>
+                Die Bezahlung erfolgt direkt in der Ordination – bar oder mit Karte. Sie erhalten eine
+                detaillierte Honorarnote mit allen durchgeführten Leistungen.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-item__number">4</div>
+            <div class="step-item__content">
+              <h3>Teilrückerstattung bei der Kasse</h3>
+              <p>
+                Reichen Sie die Honorarnote bei Ihrer Krankenkasse ein. Sie erhalten in der Regel bis
+                zu 80 % des Kassentarifs rückerstattet. Viele Kassen bieten dafür bereits eine einfache
+                Online-Einreichung an.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info box -->
+        <div class="info-banner" style="margin-top: var(--sp-2xl);">
+          <h3 class="info-banner__title">
+            Was Sie zum Termin mitbringen sollten
+          </h3>
+          <p class="info-banner__text">
+            Bitte bringen Sie Ihre E-Card, einen Lichtbildausweis und – sofern vorhanden – aktuelle Befunde,
+            eine Überweisung sowie eine Liste Ihrer Medikamente mit. So können wir Ihre Untersuchung optimal
+            vorbereiten und die Zeit bestmöglich für Sie nutzen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title" class="cta-section__title">Noch Fragen zur Terminbuchung?</h2>
+        <p class="cta-section__text">
+          Mein Ordinationsteam hilft Ihnen gerne weiter – telefonisch oder per E-Mail.
+        </p>
+        <a href="/kontakt/" class="btn btn--primary btn--lg">Kontakt aufnehmen</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer__heading">Dr. med. Thomas Pap</p>
+          <p class="footer__text">
+            Facharzt für Innere Medizin und Kardiologie<br>
+            Wahlarzt-Ordination in Graz
+          </p>
+          <p class="footer__text" style="margin-top: var(--sp-md);">
+            <a href="tel:+436764501256">+43 676 450 125 6</a><br>
+            <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+          </p>
+        </div>
+        <div>
+          <p class="footer__heading">Navigation</p>
+          <ul class="footer__nav-list">
+            <li><a href="/" class="footer__nav-link">Startseite</a></li>
+            <li><a href="/ueber-mich/" class="footer__nav-link">Über mich</a></li>
+            <li><a href="/leistungen/" class="footer__nav-link">Leistungen</a></li>
+            <li><a href="/blog/" class="footer__nav-link">Blog</a></li>
+            <li><a href="/faq/" class="footer__nav-link">FAQ</a></li>
+            <li><a href="/termin/" class="footer__nav-link">Termin buchen</a></li>
+            <li><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Öffnungszeiten</p>
+          <p class="footer__text">
+            Do: 16:00 – 21:00 Uhr<br>
+            
+            <em>Termine nach Vereinbarung</em>
+          </p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Dr. med. Thomas Pap. Alle Rechte vorbehalten.</span>
+        <span>
+          <a href="/impressum/">Impressum</a> &middot;
+          <a href="/datenschutz/">Datenschutz</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var burger = document.querySelector('.burger');
+      var mobileNav = document.getElementById('mobile-nav');
+      var mobileLinks = mobileNav.querySelectorAll('.mobile-nav__link');
+      function toggleMenu() {
+        var isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        burger.setAttribute('aria-label', isOpen ? 'Menü öffnen' : 'Menü schließen');
+        mobileNav.setAttribute('aria-hidden', String(isOpen));
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+      }
+      burger.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          burger.setAttribute('aria-expanded', 'false');
+          burger.setAttribute('aria-label', 'Menü öffnen');
+          mobileNav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+          toggleMenu(); burger.focus();
+        }
+      });
+      var header = document.querySelector('.site-header');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
