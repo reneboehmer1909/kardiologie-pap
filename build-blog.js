@@ -18,10 +18,17 @@ const path  = require('path');
    Contentful config
    ============================================================ */
 const CF = {
-  spaceId:     process.env.CONTENTFUL_SPACE_ID     || '6sdconw1l4gr',
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN  || 'Oqrxu8aQx-bPr7vwWZ9t88xqEwnnwmypr4md72p_YE4',
+  spaceId:     process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   contentType: 'drPap',
 };
+
+if (!CF.spaceId || !CF.accessToken) {
+  console.error('❌ Fehler: CONTENTFUL_SPACE_ID und CONTENTFUL_ACCESS_TOKEN müssen als Environment Variables gesetzt sein.');
+  console.error('   Lokal: CONTENTFUL_SPACE_ID=xxx CONTENTFUL_ACCESS_TOKEN=yyy node build-blog.js');
+  console.error('   Netlify: Site configuration → Environment variables');
+  process.exit(1);
+}
 
 const SITE_URL = process.env.SITE_URL || 'https://www.kardiologie-pap.at';
 
