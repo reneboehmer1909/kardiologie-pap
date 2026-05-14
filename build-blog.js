@@ -289,7 +289,7 @@ function footer() {
           </p>
           <p class="footer__text" style="margin-top: var(--sp-md);">
             <a href="tel:+436764501256">+43 676 450 125 6</a><br>
-            <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+            <a href="#" class="js-mail" data-u="mail" data-d="kardiologie-pap.at" rel="nofollow">mail (at) kardiologie-pap.at</a>
           </p>
         </div>
         <div>
@@ -357,6 +357,7 @@ function burgerScript() {
       window.addEventListener('scroll', function () {
         header.classList.toggle('scrolled', window.scrollY > 10);
       }, { passive: true });
+      document.querySelectorAll('a.js-mail').forEach(function(a){var u=a.getAttribute('data-u'),d=a.getAttribute('data-d');if(!u||!d)return;var addr=u+String.fromCharCode(64)+d;a.href='mailto:'+addr;a.textContent=addr;});
     })();
   </script>`;
 }

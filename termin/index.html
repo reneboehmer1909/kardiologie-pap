@@ -294,7 +294,7 @@
             <div class="contact-option__icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div class="contact-option__text">
               <strong>Per E-Mail</strong>
-              <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+              <a href="#" class="js-mail" data-u="mail" data-d="kardiologie-pap.at" rel="nofollow">mail (at) kardiologie-pap.at</a>
             </div>
           </div>
         </div>
@@ -400,7 +400,7 @@
           </p>
           <p class="footer__text" style="margin-top: var(--sp-md);">
             <a href="tel:+436764501256">+43 676 450 125 6</a><br>
-            <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+            <a href="#" class="js-mail" data-u="mail" data-d="kardiologie-pap.at" rel="nofollow">mail (at) kardiologie-pap.at</a>
           </p>
         </div>
         <div>
@@ -468,5 +468,6 @@
     })();
   </script>
 
+  <script>document.querySelectorAll('a.js-mail').forEach(function(a){var u=a.getAttribute('data-u'),d=a.getAttribute('data-d');if(!u||!d)return;var addr=u+String.fromCharCode(64)+d;a.href='mailto:'+addr;a.textContent=addr;});</script>
 </body>
 </html>

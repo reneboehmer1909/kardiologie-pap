@@ -144,7 +144,7 @@
             Facharzt für Innere Medizin und Kardiologie<br>
             Hans-Sachs-Gasse 14, 8010 Graz, Österreich<br>
             Telefon: <a href="tel:+436764501256">+43 676 450 125 6</a><br>
-            E-Mail: <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+            E-Mail: <a href="#" class="js-mail" data-u="mail" data-d="kardiologie-pap.at" rel="nofollow">mail (at) kardiologie-pap.at</a>
           </p>
 
           <!-- 2. Grundsätzliches -->
@@ -263,7 +263,7 @@
             <li><strong>Widerruf der Einwilligung</strong> (Art. 7 Abs. 3 DSGVO): Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen.</li>
           </ul>
           <p>
-            Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+            Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="#" class="js-mail" data-u="mail" data-d="kardiologie-pap.at" rel="nofollow">mail (at) kardiologie-pap.at</a>
           </p>
 
           <!-- 13. Beschwerderecht -->
@@ -302,7 +302,7 @@
           </p>
           <p class="footer__text" style="margin-top: var(--sp-md);">
             <a href="tel:+436764501256">+43 676 450 125 6</a><br>
-            <a href="mailto:mail@kardiologie-pap.at">mail@kardiologie-pap.at</a>
+            <a href="#" class="js-mail" data-u="mail" data-d="kardiologie-pap.at" rel="nofollow">mail (at) kardiologie-pap.at</a>
           </p>
         </div>
         <div>
@@ -369,5 +369,6 @@
     })();
   </script>
 
+  <script>document.querySelectorAll('a.js-mail').forEach(function(a){var u=a.getAttribute('data-u'),d=a.getAttribute('data-d');if(!u||!d)return;var addr=u+String.fromCharCode(64)+d;a.href='mailto:'+addr;a.textContent=addr;});</script>
 </body>
 </html>
