@@ -19,7 +19,7 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 
   <style>
@@ -30,33 +30,36 @@
     }
     .service-block {
       display: grid;
-      gap: var(--sp-lg);
-      padding: var(--sp-xl);
+      gap: var(--sp-md);
+      padding: var(--sp-lg);
       background: var(--clr-white);
-      border-radius: var(--border-radius-lg);
-      box-shadow: var(--shadow-sm);
       border: 1px solid var(--clr-gray-200);
+      border-top: 2px solid var(--clr-accent);
     }
     .service-block__header {
       display: flex;
       align-items: center;
       gap: var(--sp-md);
     }
+    @media (min-width: 600px) {
+      .service-block { gap: var(--sp-lg); padding: var(--sp-2xl); }
+      .service-block__header { gap: var(--sp-lg); }
+    }
     .service-block__icon {
       flex-shrink: 0;
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--clr-blue-light);
-      border-radius: var(--border-radius-lg);
-      font-size: 1.6rem;
+      background: transparent;
+      padding: 0;
     }
     .service-block__title {
       font-size: var(--fs-xl);
-      font-family: var(--ff-body);
-      font-weight: var(--fw-bold);
+      font-family: var(--ff-heading);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--tracking-tight);
     }
     .service-block__body p {
       color: var(--clr-text-light);
@@ -72,30 +75,35 @@
     }
     .tag {
       display: inline-block;
-      font-size: var(--fs-sm);
-      font-weight: var(--fw-medium);
-      padding: 0.3em 0.8em;
-      background: var(--clr-blue-light);
+      font-size: 0.75rem;
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.45em 0.9em;
+      background: transparent;
       color: var(--clr-navy);
-      border-radius: 20px;
+      border: 1px solid var(--clr-gray-200);
+      border-radius: 0;
     }
     .service-block__icon svg {
-      width: 28px;
-      height: 28px;
-      stroke: var(--clr-navy);
+      width: 36px;
+      height: 36px;
+      stroke: var(--clr-accent);
       fill: none;
-      stroke-width: 1.8;
+      stroke-width: 1.4;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
     .service-block__img {
-      border-radius: var(--border-radius-lg);
       overflow: hidden;
     }
     .service-block__img img {
       width: 100%;
       height: 200px;
       object-fit: cover;
+    }
+    @media (min-width: 600px) {
+      .service-block__img img { height: 240px; }
     }
   </style>
 </head>
@@ -194,7 +202,7 @@
               </p>
             </div>
             <div class="service-block__img">
-              <img src="/img/photos/p1.png" alt="Herzultraschall-Untersuchung – Ärztin führt Echokardiographie am Patienten durch" width="800" height="450" loading="lazy">
+              <img src="/img/photos/herzultraschall-echokardiographie.jpg" alt="Herzultraschall-Untersuchung – Ärztin führt Echokardiographie am Patienten durch" width="800" height="450" loading="lazy">
             </div>
             <div class="service-block__tags">
               <span class="tag">Schmerzfrei</span>
@@ -221,7 +229,7 @@
               </p>
             </div>
             <div class="service-block__img">
-              <img src="/img/photos/p4.png" alt="Ruhe-EKG – Patient wird mit EKG-Elektroden untersucht" width="800" height="450" loading="lazy">
+              <img src="/img/photos/ruhe-ekg.jpg" alt="Ruhe-EKG – Patient wird mit EKG-Elektroden untersucht" width="800" height="450" loading="lazy">
             </div>
             <div class="service-block__tags">
               <span class="tag">Schmerzfrei</span>
@@ -253,7 +261,7 @@
               </p>
             </div>
             <div class="service-block__img">
-              <img src="/img/photos/p2.png" alt="Belastungs-EKG – Patient auf dem Fahrrad-Ergometer mit Monitor" width="800" height="450" loading="lazy">
+              <img src="/img/photos/belastungs-ekg-ergometer.jpg" alt="Belastungs-EKG – Patient auf dem Fahrrad-Ergometer mit Monitor" width="800" height="450" loading="lazy">
             </div>
             <div class="service-block__tags">
               <span class="tag">Auf dem Ergometer</span>
@@ -285,7 +293,7 @@
               </p>
             </div>
             <div class="service-block__img">
-              <img src="/img/photos/p3.png" alt="Langzeit-EKG – Patientin trägt tragbaren Holter-Monitor im Alltag" width="800" height="450" loading="lazy">
+              <img src="/img/photos/langzeit-ekg-24-stunden.jpg" alt="Langzeit-EKG – tragbares Aufzeichnungsgerät für die 24-Stunden-EKG-Messung" width="800" height="450" loading="lazy">
             </div>
             <div class="service-block__tags">
               <span class="tag">24 Stunden</span>
@@ -317,7 +325,7 @@
               </p>
             </div>
             <div class="service-block__img">
-              <img src="/img/photos/p5.png" alt="24-Stunden-Blutdruckmessung – Patientin mit automatischer Blutdruckmanschette" width="800" height="450" loading="lazy">
+              <img src="/img/photos/langzeit-blutdruckmessung.jpg" alt="24-Stunden-Blutdruckmessung – Patientin mit automatischer Blutdruckmanschette" width="800" height="450" loading="lazy">
             </div>
             <div class="service-block__tags">
               <span class="tag">24 Stunden</span>
@@ -349,7 +357,7 @@
               </p>
             </div>
             <div class="service-block__img">
-              <img src="/img/photos/p6.png" alt="Ärztliches Beratungsgespräch zur OP-Freigabe" width="800" height="450" loading="lazy">
+              <img src="/img/photos/beratungsgespraech.jpg" alt="Ärztliches Beratungsgespräch zur OP-Freigabe" width="800" height="450" loading="lazy" style="object-position: 50% 35%;">
             </div>
             <div class="service-block__tags">
               <span class="tag">Schriftlicher Befund</span>
@@ -382,7 +390,7 @@
               </p>
             </div>
             <div class="service-block__img">
-              <img src="/img/photos/p6.png" alt="Persönliches Beratungsgespräch zur kardiologischen Vorsorge" width="800" height="450" loading="lazy">
+              <img src="/img/photos/vorsorge-untersuchung.jpg" alt="Vorsorgeuntersuchung – kardiologische Gesundenuntersuchung in der Ordination Dr. Pap" width="800" height="450" loading="lazy" style="object-position: 50% 90%;">
             </div>
             <div class="service-block__tags">
               <span class="tag">Ab 18 Jahren</span>
@@ -415,7 +423,7 @@
               </p>
             </div>
             <div class="service-block__img">
-              <img src="/img/photos/p6.png" alt="Kardiologische Nachsorge – Ärztin bespricht Befunde mit Patient" width="800" height="450" loading="lazy">
+              <img src="/img/photos/nachsorge-betreuung.jpg" alt="Kardiologische Nachsorge – langfristige Betreuung nach Herzeingriffen in der Ordination Dr. Pap" width="800" height="450" loading="lazy" style="object-position: 50% 30%;">
             </div>
             <div class="service-block__tags">
               <span class="tag">Regelmäßige Kontrollen</span>
@@ -521,6 +529,33 @@
       window.addEventListener('scroll', function () {
         header.classList.toggle('scrolled', window.scrollY > 10);
       }, { passive: true });
+
+      // Foldable bodies on mobile (≤599px)
+      var mq = window.matchMedia('(max-width: 599px)');
+      function applyCollapse(matches) {
+        document.querySelectorAll('.service-block__body').forEach(function (body) {
+          var existing = body.querySelector(':scope > details.collapsible-mobile');
+          if (matches) {
+            if (existing) return;
+            var paragraphs = Array.prototype.filter.call(body.children, function (el) { return el.tagName === 'P'; });
+            if (paragraphs.length < 2) return;
+            var details = document.createElement('details');
+            details.className = 'collapsible-mobile';
+            var summary = document.createElement('summary');
+            summary.textContent = 'Weiterlesen';
+            details.appendChild(summary);
+            paragraphs.slice(1).forEach(function (p) { details.appendChild(p); });
+            body.appendChild(details);
+          } else if (existing) {
+            var moved = existing.querySelectorAll(':scope > p');
+            moved.forEach(function (p) { body.appendChild(p); });
+            existing.remove();
+          }
+        });
+      }
+      applyCollapse(mq.matches);
+      if (mq.addEventListener) mq.addEventListener('change', function (e) { applyCollapse(e.matches); });
+      else if (mq.addListener) mq.addListener(function (e) { applyCollapse(e.matches); });
     })();
   </script>
 

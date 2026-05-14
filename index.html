@@ -19,14 +19,14 @@
   <meta property="og:url" content="https://www.kardiologie-pap.at/">
   <meta property="og:locale" content="de_AT">
   <meta property="og:site_name" content="Dr. med. Thomas Pap">
-  <meta property="og:image" content="https://www.kardiologie-pap.at/img/photos/Portrait.jpg">
+  <meta property="og:image" content="https://www.kardiologie-pap.at/img/photos/dr-thomas-pap-portrait.jpg">
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 
@@ -39,9 +39,16 @@
     }
 
     .home-intro__img {
-      border-radius: var(--border-radius-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .home-intro__img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--clr-gray-200);
+      pointer-events: none;
     }
 
     .home-intro__img img {
@@ -117,14 +124,23 @@
       { "@type": "MedicalProcedure", "name": "24h-Blutdruckmessung" },
       { "@type": "MedicalProcedure", "name": "Vorsorgeuntersuchung" }
     ],
-    "image": "https://www.kardiologie-pap.at/img/photos/Portrait.jpg"
+    "image": "https://www.kardiologie-pap.at/img/photos/dr-thomas-pap-portrait.jpg"
   }
   </script>
 
   <!-- Preload hero video poster -->
-  <link rel="preload" as="image" href="img/photos/Ord1.png">
+  <link rel="preload" as="image" href="img/photos/empfangsbereich-ordination.jpg">
+
+  <!-- Detect slow network early; class is used in CSS to show blurred fallback instead of video -->
+  <script>
+    (function () {
+      var c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      var slow = !!(c && (c.saveData || ['slow-2g', '2g', '3g'].indexOf(c.effectiveType) !== -1));
+      if (slow) document.documentElement.classList.add('slow-net');
+    })();
+  </script>
 </head>
-<body>
+<body class="body--has-hero">
 
   <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
@@ -178,17 +194,17 @@
     <!-- Hero Section with Video Background (Desktop) -->
     <section class="hero hero--video" aria-labelledby="hero-title">
 
-      <!-- Video Background (shown on desktop only via CSS) -->
+      <!-- Video Background (shown on desktop only, lazy-loaded on fast connections) -->
       <div class="hero__video-wrap">
-        <video autoplay muted loop playsinline poster="img/photos/Ord1.png">
-          <source src="img/video/header.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="none" poster="img/photos/empfangsbereich-ordination.jpg">
+          <source data-src="img/video/header.mp4?v=2" type="video/mp4">
         </video>
         <div class="hero__video-overlay"></div>
       </div>
 
       <!-- Fallback Image (shown on mobile) -->
       <div class="hero__fallback-img">
-        <img src="img/photos/Ord1.png" alt="" width="1920" height="800" loading="eager">
+        <img src="img/photos/empfangsbereich-ordination.jpg" alt="" width="1920" height="800" loading="eager">
       </div>
 
       <div class="container">
@@ -220,7 +236,7 @@
         <!-- Photo + text -->
         <div class="home-intro">
           <div class="home-intro__img">
-            <img src="img/photos/Ord1.png" alt="Heller, einladender Empfangsbereich der Ordination Dr. Pap in Graz" width="640" height="480" loading="lazy">
+            <img src="img/photos/empfangsbereich-ordination.jpg" alt="Heller, einladender Empfangsbereich der Ordination Dr. Pap in Graz" width="640" height="480" loading="lazy">
           </div>
           <div class="home-intro__content">
             <p>
@@ -474,6 +490,16 @@
       window.addEventListener('scroll', function () {
         header.classList.toggle('scrolled', window.scrollY > 10);
       }, { passive: true });
+
+      // Activate hero video only on fast connections
+      if (!document.documentElement.classList.contains('slow-net')) {
+        var sources = document.querySelectorAll('.hero__video-wrap source[data-src]');
+        if (sources.length) {
+          sources.forEach(function (s) { s.src = s.getAttribute('data-src'); });
+          var v = document.querySelector('.hero__video-wrap video');
+          if (v) { v.load(); var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        }
+      }
     })();
   </script>
 
