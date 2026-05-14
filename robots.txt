@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /blog-admin.html
+
+Sitemap: https://www.kardiologie-pap.at/sitemap.xml
