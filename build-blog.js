@@ -164,7 +164,26 @@ function svgBack() {
 /* ============================================================
    Shared HTML fragments
    ============================================================ */
-function htmlHead({ title, description, canonical, ogType, ogImage }) {
+function htmlHead({ title, description, canonical, ogType, ogImage, breadcrumbs }) {
+  const fallbackImg = SITE_URL + '/img/photos/empfangsbereich-ordination.jpg';
+  const twitterImg = ogImage || fallbackImg;
+  const ogImageTags = ogImage
+    ? `  <meta property="og:image" content="${escapeAttr(ogImage)}">\n  <meta property="og:image:type" content="image/jpeg">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">\n  <meta property="og:image:alt" content="${escapeAttr(title)}">`
+    : `  <meta property="og:image" content="${escapeAttr(fallbackImg)}">\n  <meta property="og:image:type" content="image/jpeg">\n  <meta property="og:image:width" content="2102">\n  <meta property="og:image:height" content="1402">\n  <meta property="og:image:alt" content="Empfangsbereich der kardiologischen Ordination Dr. Thomas Pap in Graz">`;
+
+  const breadcrumbsLd = breadcrumbs && breadcrumbs.length
+    ? `\n  <script type="application/ld+json">\n${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: b.name,
+          item: b.url,
+        })),
+      }, null, 2)}\n  </script>`
+    : '';
+
   return `<!DOCTYPE html>
 <html lang="de-AT">
 <head>
@@ -184,7 +203,13 @@ function htmlHead({ title, description, canonical, ogType, ogImage }) {
   <meta property="og:url" content="${escapeAttr(canonical)}">
   <meta property="og:locale" content="de_AT">
   <meta property="og:site_name" content="Dr. med. Thomas Pap">
-${ogImage ? `  <meta property="og:image" content="${escapeAttr(ogImage)}">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">` : ''}
+${ogImageTags}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeAttr(title)}">
+  <meta name="twitter:description" content="${escapeAttr(description)}">
+  <meta name="twitter:image" content="${escapeAttr(twitterImg)}">
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/logo.png">
@@ -197,7 +222,7 @@ ${ogImage ? `  <meta property="og:image" content="${escapeAttr(ogImage)}">\n  <m
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">`;
+  <link rel="stylesheet" href="/style.css">${breadcrumbsLd}`;
 }
 
 function headerNav(activePage) {
@@ -388,6 +413,10 @@ function buildListingPage(posts, assetsMap) {
     description: 'Aktuelles aus der Kardiologie: Fachbeiträge, Gesundheitstipps und Neuigkeiten aus der Ordination von Dr. med. Thomas Pap in Graz.',
     canonical: SITE_URL + '/blog/',
     ogType: 'website',
+    breadcrumbs: [
+      { name: 'Startseite', url: SITE_URL + '/' },
+      { name: 'Blog', url: SITE_URL + '/blog/' },
+    ],
   })}
 
   <style>
@@ -601,6 +630,11 @@ function buildPostPage(entry, assetsMap) {
     canonical,
     ogType: 'article',
     ogImage,
+    breadcrumbs: [
+      { name: 'Startseite', url: SITE_URL + '/' },
+      { name: 'Blog', url: SITE_URL + '/blog/' },
+      { name: title, url: canonical },
+    ],
   })}
 
   <script type="application/ld+json">${jsonLd}</script>

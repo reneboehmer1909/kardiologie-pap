@@ -19,7 +19,16 @@
   <meta property="og:url" content="https://www.kardiologie-pap.at/">
   <meta property="og:locale" content="de_AT">
   <meta property="og:site_name" content="Dr. med. Thomas Pap">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dr. med. Thomas Pap – Kardiologe &amp; Internist in Graz">
+  <meta name="twitter:description" content="Wahlarzt-Ordination für Kardiologie in Graz. Persönliche Betreuung, modernste Diagnostik, keine Wartezeiten.">
+  <meta name="twitter:image" content="https://www.kardiologie-pap.at/img/photos/dr-thomas-pap-portrait.jpg">
   <meta property="og:image" content="https://www.kardiologie-pap.at/img/photos/dr-thomas-pap-portrait.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1352">
+  <meta property="og:image:height" content="2028">
+  <meta property="og:image:alt" content="Dr. med. Thomas Pap – Facharzt für Innere Medizin und Kardiologie in Graz">
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/logo.png">
@@ -97,23 +106,27 @@
     }
   </style>
 
-  <!-- Structured Data (JSON-LD) -->
+  <!-- Structured Data: Physician / MedicalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Physician",
+    "@id": "https://www.kardiologie-pap.at/#physician",
     "name": "Dr. med. Thomas Pap",
-    "description": "Facharzt für Innere Medizin und Kardiologie – Wahlarzt-Ordination in Graz",
-    "url": "https://www.kardiologie-pap.at",
+    "alternateName": "Kardiologie Pap Graz",
+    "description": "Facharzt für Innere Medizin und Kardiologie – Wahlarzt-Ordination in Graz. Persönliche Betreuung, modernste Diagnostik, ohne Wartezeiten.",
+    "url": "https://www.kardiologie-pap.at/",
     "telephone": "+43-676-4501256",
     "email": "mail@kardiologie-pap.at",
+    "image": [
+      "https://www.kardiologie-pap.at/img/photos/dr-thomas-pap-portrait.jpg",
+      "https://www.kardiologie-pap.at/img/photos/empfangsbereich-ordination.jpg"
+    ],
+    "logo": "https://www.kardiologie-pap.at/img/icons/logo.png",
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Bar, Bankomat, Überweisung",
     "knowsLanguage": ["de", "en"],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Thursday",
-      "opens": "16:00",
-      "closes": "21:00"
-    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Hans-Sachs-Gasse 14",
@@ -122,16 +135,46 @@
       "addressRegion": "Steiermark",
       "addressCountry": "AT"
     },
-    "medicalSpecialty": ["Cardiology", "InternalMedicine"],
-    "availableService": [
-      { "@type": "MedicalProcedure", "name": "Echokardiographie" },
-      { "@type": "MedicalProcedure", "name": "Ruhe-EKG" },
-      { "@type": "MedicalProcedure", "name": "Belastungs-EKG" },
-      { "@type": "MedicalProcedure", "name": "24h-EKG" },
-      { "@type": "MedicalProcedure", "name": "24h-Blutdruckmessung" },
-      { "@type": "MedicalProcedure", "name": "Vorsorgeuntersuchung" }
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.0707,
+      "longitude": 15.4389
+    },
+    "hasMap": "https://www.google.com/maps/place/Hans-Sachs-Gasse+14,+8010+Graz",
+    "areaServed": [
+      { "@type": "City", "name": "Graz" },
+      { "@type": "AdministrativeArea", "name": "Steiermark" }
     ],
-    "image": "https://www.kardiologie-pap.at/img/photos/dr-thomas-pap-portrait.jpg"
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "16:00",
+      "closes": "21:00"
+    }],
+    "medicalSpecialty": ["Cardiovascular", "InternalMedicine"],
+    "availableService": [
+      { "@type": "MedicalProcedure", "name": "Herzultraschall (Echokardiographie)", "url": "https://www.kardiologie-pap.at/leistungen/#herzultraschall" },
+      { "@type": "MedicalProcedure", "name": "Ruhe-EKG", "url": "https://www.kardiologie-pap.at/leistungen/#ruhe-ekg" },
+      { "@type": "MedicalProcedure", "name": "Belastungs-EKG (Ergometrie)", "url": "https://www.kardiologie-pap.at/leistungen/#belastungs-ekg" },
+      { "@type": "MedicalProcedure", "name": "24-Stunden-EKG (Langzeit-EKG)", "url": "https://www.kardiologie-pap.at/leistungen/#langzeit-ekg" },
+      { "@type": "MedicalProcedure", "name": "24-Stunden-Blutdruckmessung", "url": "https://www.kardiologie-pap.at/leistungen/#langzeit-blutdruck" },
+      { "@type": "MedicalProcedure", "name": "Internistische OP-Freigabe", "url": "https://www.kardiologie-pap.at/leistungen/#op-freigabe" },
+      { "@type": "MedicalProcedure", "name": "Vorsorgeuntersuchung (Gesundenuntersuchung)", "url": "https://www.kardiologie-pap.at/leistungen/#vorsorge" },
+      { "@type": "MedicalProcedure", "name": "Kardiologische Nachsorge", "url": "https://www.kardiologie-pap.at/leistungen/#nachsorge" }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: WebSite (sitelinks search box) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.kardiologie-pap.at/#website",
+    "url": "https://www.kardiologie-pap.at/",
+    "name": "Dr. med. Thomas Pap – Kardiologie Graz",
+    "inLanguage": "de-AT",
+    "publisher": { "@id": "https://www.kardiologie-pap.at/#physician" }
   }
   </script>
 
@@ -211,7 +254,7 @@
 
       <!-- Fallback Image (shown on mobile) -->
       <div class="hero__fallback-img">
-        <img src="img/photos/empfangsbereich-ordination.jpg" alt="" width="1920" height="800" loading="eager">
+        <img src="img/photos/empfangsbereich-ordination.jpg" alt="" width="1920" height="800" loading="eager" fetchpriority="high">
       </div>
 
       <div class="container">

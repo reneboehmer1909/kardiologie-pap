@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Seite nicht gefunden – Dr. med. Thomas Pap</title>
+  <meta name="description" content="Die angeforderte Seite wurde nicht gefunden. Zur Startseite der kardiologischen Ordination Dr. Thomas Pap in Graz.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/logo.png">
+  <meta name="theme-color" content="#1a2744">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .error-page {
+      min-height: calc(100vh - var(--header-height));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-3xl) 0;
+      text-align: center;
+    }
+    .error-page__code {
+      font-family: var(--ff-heading);
+      font-size: clamp(5rem, 18vw, 9rem);
+      font-weight: var(--fw-bold);
+      letter-spacing: var(--tracking-tighter);
+      line-height: 1;
+      color: var(--clr-navy);
+      margin-bottom: var(--sp-md);
+    }
+    .error-page__title {
+      font-size: var(--fs-2xl);
+      margin-bottom: var(--sp-md);
+    }
+    .error-page__text {
+      max-width: 480px;
+      margin: 0 auto var(--sp-xl);
+      color: var(--clr-text-light);
+      line-height: var(--lh-normal);
+    }
+    .error-page__actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--sp-md);
+    }
+    .error-page__links {
+      margin-top: var(--sp-2xl);
+      padding-top: var(--sp-xl);
+      border-top: 1px solid var(--clr-gray-200);
+      max-width: 480px;
+      margin-inline: auto;
+    }
+    .error-page__links-title {
+      font-size: 0.75rem;
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--clr-gray-400);
+      margin-bottom: var(--sp-md);
+    }
+    .error-page__links ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--sp-md) var(--sp-lg);
+    }
+    .error-page__links a {
+      color: var(--clr-navy);
+      font-weight: var(--fw-medium);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Zur Startseite von Dr. med. Thomas Pap">
+        <img src="/img/icons/logo.png" alt="" class="logo__img" width="42" height="42">
+        <span class="logo__text">
+          <span class="logo__name">Dr. med. Thomas Pap</span>
+          <span class="logo__subtitle">Innere Medizin &amp; Kardiologie</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <ul class="main-nav__list">
+          <li><a href="/" class="main-nav__link">Startseite</a></li>
+          <li><a href="/ueber-mich/" class="main-nav__link">Über mich</a></li>
+          <li><a href="/leistungen/" class="main-nav__link">Leistungen</a></li>
+          <li><a href="/blog/" class="main-nav__link">Blog</a></li>
+          <li><a href="/faq/" class="main-nav__link">FAQ</a></li>
+          <li><a href="/termin/" class="main-nav__link">Termin buchen</a></li>
+          <li><a href="/kontakt/" class="main-nav__link">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" aria-hidden="true">
+    <ul class="mobile-nav__list">
+      <li><a href="/" class="mobile-nav__link">Startseite</a></li>
+      <li><a href="/ueber-mich/" class="mobile-nav__link">Über mich</a></li>
+      <li><a href="/leistungen/" class="mobile-nav__link">Leistungen</a></li>
+      <li><a href="/blog/" class="mobile-nav__link">Blog</a></li>
+      <li><a href="/faq/" class="mobile-nav__link">FAQ</a></li>
+      <li><a href="/termin/" class="mobile-nav__link">Termin buchen</a></li>
+      <li><a href="/kontakt/" class="mobile-nav__link">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <section class="error-page">
+      <div class="container">
+        <div class="error-page__code" aria-hidden="true">404</div>
+        <h1 class="error-page__title">Seite nicht gefunden</h1>
+        <p class="error-page__text">
+          Die von Ihnen angeforderte Seite existiert nicht oder wurde verschoben.
+          Bitte prüfen Sie die Adresse oder kehren Sie zur Startseite zurück.
+        </p>
+        <div class="error-page__actions">
+          <a href="/" class="btn btn--primary">Zur Startseite</a>
+          <a href="/kontakt/" class="btn btn--outline-dark">Kontakt aufnehmen</a>
+        </div>
+
+        <div class="error-page__links">
+          <p class="error-page__links-title">Häufig besucht</p>
+          <ul>
+            <li><a href="/leistungen/">Leistungen</a></li>
+            <li><a href="/ueber-mich/">Über mich</a></li>
+            <li><a href="/termin/">Termin buchen</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom">
+        <span>&copy; 2026 Dr. med. Thomas Pap. Alle Rechte vorbehalten.</span>
+        <span>
+          <a href="/impressum/">Impressum</a> &middot;
+          <a href="/datenschutz/">Datenschutz</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var burger = document.querySelector('.burger');
+      var mobileNav = document.getElementById('mobile-nav');
+      var mobileLinks = mobileNav.querySelectorAll('.mobile-nav__link');
+      function toggleMenu() {
+        var isOpen = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        burger.setAttribute('aria-label', isOpen ? 'Menü öffnen' : 'Menü schließen');
+        mobileNav.setAttribute('aria-hidden', String(isOpen));
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+      }
+      burger.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          burger.setAttribute('aria-expanded', 'false');
+          mobileNav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
