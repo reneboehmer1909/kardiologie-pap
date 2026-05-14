@@ -238,7 +238,7 @@ function headerNav(activePage) {
   <header class="site-header" role="banner">
     <div class="container">
       <a href="/" class="logo" aria-label="Zur Startseite von Dr. med. Thomas Pap">
-        <img src="/img/icons/logo.png" alt="" class="logo__img" width="42" height="42">
+        <img src="/img/icons/logo.png" alt="Logo Dr. med. Thomas Pap – Kardiologie Graz" class="logo__img" width="42" height="42">
         <span class="logo__text">
           <span class="logo__name">Dr. med. Thomas Pap</span>
           <span class="logo__subtitle">Innere Medizin &amp; Kardiologie</span>
@@ -382,8 +382,8 @@ function buildListingPage(posts, assetsMap) {
     }
 
     const thumbHtml = imgUrl
-      ? `<img src="${escapeAttr(imgUrl)}" alt="" loading="lazy">`
-      : '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--clr-gray-400);"><svg width="48" height="48" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
+      ? `<img src="${escapeAttr(imgUrl)}" alt="${escapeAttr('Beitragsbild: ' + (f.titel || 'Blogbeitrag'))}" loading="lazy">`
+      : '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--clr-gray-400);"><svg width="48" height="48" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
 
     return `
           <a href="${escapeAttr(postUrl)}" class="blog-card" aria-label="${escapeAttr(f.titel || '')}">
@@ -719,7 +719,7 @@ ${headerNav('blog')}
             ${svgBack()} Alle Beiträge
           </a>
 
-          ${imgUrl ? `<div class="post-hero"><img src="${escapeAttr(imgUrl)}?w=780&h=440&fit=fill&q=85" alt=""></div>` : ''}
+          ${imgUrl ? `<div class="post-hero"><img src="${escapeAttr(imgUrl)}?w=780&h=440&fit=fill&q=85" alt="${escapeAttr('Beitragsbild: ' + title)}"></div>` : ''}
 
           <div class="post-meta">
             <span>${svgCalendar()} ${dateDisplay}</span>
